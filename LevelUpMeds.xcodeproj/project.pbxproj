@@ -1,0 +1,610 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 55;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		232E91D3273354BC0020EC5B /* LevelUpMedsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 232E91D2273354BC0020EC5B /* LevelUpMedsApp.swift */; };
+		232E91D5273354BC0020EC5B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 232E91D4273354BC0020EC5B /* ContentView.swift */; };
+		232E91D7273354BE0020EC5B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 232E91D6273354BE0020EC5B /* Assets.xcassets */; };
+		232E91DA273354BE0020EC5B /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 232E91D9273354BE0020EC5B /* Preview Assets.xcassets */; };
+		232E91E4273354BE0020EC5B /* LevelUpMedsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 232E91E3273354BE0020EC5B /* LevelUpMedsTests.swift */; };
+		232E91EE273354BE0020EC5B /* LevelUpMedsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 232E91ED273354BE0020EC5B /* LevelUpMedsUITests.swift */; };
+		232E91F0273354BE0020EC5B /* LevelUpMedsUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 232E91EF273354BE0020EC5B /* LevelUpMedsUITestsLaunchTests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		232E91E0273354BE0020EC5B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 232E91C7273354BC0020EC5B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 232E91CE273354BC0020EC5B;
+			remoteInfo = LevelUpMeds;
+		};
+		232E91EA273354BE0020EC5B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 232E91C7273354BC0020EC5B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 232E91CE273354BC0020EC5B;
+			remoteInfo = LevelUpMeds;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		232E91CF273354BC0020EC5B /* LevelUpMeds.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LevelUpMeds.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		232E91D2273354BC0020EC5B /* LevelUpMedsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelUpMedsApp.swift; sourceTree = "<group>"; };
+		232E91D4273354BC0020EC5B /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		232E91D6273354BE0020EC5B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		232E91D9273354BE0020EC5B /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		232E91DF273354BE0020EC5B /* LevelUpMedsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LevelUpMedsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		232E91E3273354BE0020EC5B /* LevelUpMedsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelUpMedsTests.swift; sourceTree = "<group>"; };
+		232E91E9273354BE0020EC5B /* LevelUpMedsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LevelUpMedsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		232E91ED273354BE0020EC5B /* LevelUpMedsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelUpMedsUITests.swift; sourceTree = "<group>"; };
+		232E91EF273354BE0020EC5B /* LevelUpMedsUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelUpMedsUITestsLaunchTests.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		232E91CC273354BC0020EC5B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		232E91DC273354BE0020EC5B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		232E91E6273354BE0020EC5B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		232E91C6273354BC0020EC5B = {
+			isa = PBXGroup;
+			children = (
+				232E91D1273354BC0020EC5B /* LevelUpMeds */,
+				232E91E2273354BE0020EC5B /* LevelUpMedsTests */,
+				232E91EC273354BE0020EC5B /* LevelUpMedsUITests */,
+				232E91D0273354BC0020EC5B /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		232E91D0273354BC0020EC5B /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				232E91CF273354BC0020EC5B /* LevelUpMeds.app */,
+				232E91DF273354BE0020EC5B /* LevelUpMedsTests.xctest */,
+				232E91E9273354BE0020EC5B /* LevelUpMedsUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		232E91D1273354BC0020EC5B /* LevelUpMeds */ = {
+			isa = PBXGroup;
+			children = (
+				232E91D2273354BC0020EC5B /* LevelUpMedsApp.swift */,
+				232E91D4273354BC0020EC5B /* ContentView.swift */,
+				232E91D6273354BE0020EC5B /* Assets.xcassets */,
+				232E91D8273354BE0020EC5B /* Preview Content */,
+			);
+			path = LevelUpMeds;
+			sourceTree = "<group>";
+		};
+		232E91D8273354BE0020EC5B /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				232E91D9273354BE0020EC5B /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		232E91E2273354BE0020EC5B /* LevelUpMedsTests */ = {
+			isa = PBXGroup;
+			children = (
+				232E91E3273354BE0020EC5B /* LevelUpMedsTests.swift */,
+			);
+			path = LevelUpMedsTests;
+			sourceTree = "<group>";
+		};
+		232E91EC273354BE0020EC5B /* LevelUpMedsUITests */ = {
+			isa = PBXGroup;
+			children = (
+				232E91ED273354BE0020EC5B /* LevelUpMedsUITests.swift */,
+				232E91EF273354BE0020EC5B /* LevelUpMedsUITestsLaunchTests.swift */,
+			);
+			path = LevelUpMedsUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		232E91CE273354BC0020EC5B /* LevelUpMeds */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 232E91F3273354BE0020EC5B /* Build configuration list for PBXNativeTarget "LevelUpMeds" */;
+			buildPhases = (
+				232E91CB273354BC0020EC5B /* Sources */,
+				232E91CC273354BC0020EC5B /* Frameworks */,
+				232E91CD273354BC0020EC5B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = LevelUpMeds;
+			productName = LevelUpMeds;
+			productReference = 232E91CF273354BC0020EC5B /* LevelUpMeds.app */;
+			productType = "com.apple.product-type.application";
+		};
+		232E91DE273354BE0020EC5B /* LevelUpMedsTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 232E91F6273354BE0020EC5B /* Build configuration list for PBXNativeTarget "LevelUpMedsTests" */;
+			buildPhases = (
+				232E91DB273354BE0020EC5B /* Sources */,
+				232E91DC273354BE0020EC5B /* Frameworks */,
+				232E91DD273354BE0020EC5B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				232E91E1273354BE0020EC5B /* PBXTargetDependency */,
+			);
+			name = LevelUpMedsTests;
+			productName = LevelUpMedsTests;
+			productReference = 232E91DF273354BE0020EC5B /* LevelUpMedsTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		232E91E8273354BE0020EC5B /* LevelUpMedsUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 232E91F9273354BE0020EC5B /* Build configuration list for PBXNativeTarget "LevelUpMedsUITests" */;
+			buildPhases = (
+				232E91E5273354BE0020EC5B /* Sources */,
+				232E91E6273354BE0020EC5B /* Frameworks */,
+				232E91E7273354BE0020EC5B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				232E91EB273354BE0020EC5B /* PBXTargetDependency */,
+			);
+			name = LevelUpMedsUITests;
+			productName = LevelUpMedsUITests;
+			productReference = 232E91E9273354BE0020EC5B /* LevelUpMedsUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		232E91C7273354BC0020EC5B /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1310;
+				LastUpgradeCheck = 1310;
+				TargetAttributes = {
+					232E91CE273354BC0020EC5B = {
+						CreatedOnToolsVersion = 13.1;
+					};
+					232E91DE273354BE0020EC5B = {
+						CreatedOnToolsVersion = 13.1;
+						TestTargetID = 232E91CE273354BC0020EC5B;
+					};
+					232E91E8273354BE0020EC5B = {
+						CreatedOnToolsVersion = 13.1;
+						TestTargetID = 232E91CE273354BC0020EC5B;
+					};
+				};
+			};
+			buildConfigurationList = 232E91CA273354BC0020EC5B /* Build configuration list for PBXProject "LevelUpMeds" */;
+			compatibilityVersion = "Xcode 13.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 232E91C6273354BC0020EC5B;
+			productRefGroup = 232E91D0273354BC0020EC5B /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				232E91CE273354BC0020EC5B /* LevelUpMeds */,
+				232E91DE273354BE0020EC5B /* LevelUpMedsTests */,
+				232E91E8273354BE0020EC5B /* LevelUpMedsUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		232E91CD273354BC0020EC5B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				232E91DA273354BE0020EC5B /* Preview Assets.xcassets in Resources */,
+				232E91D7273354BE0020EC5B /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		232E91DD273354BE0020EC5B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		232E91E7273354BE0020EC5B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		232E91CB273354BC0020EC5B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				232E91D5273354BC0020EC5B /* ContentView.swift in Sources */,
+				232E91D3273354BC0020EC5B /* LevelUpMedsApp.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		232E91DB273354BE0020EC5B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				232E91E4273354BE0020EC5B /* LevelUpMedsTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		232E91E5273354BE0020EC5B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				232E91EE273354BE0020EC5B /* LevelUpMedsUITests.swift in Sources */,
+				232E91F0273354BE0020EC5B /* LevelUpMedsUITestsLaunchTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		232E91E1273354BE0020EC5B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 232E91CE273354BC0020EC5B /* LevelUpMeds */;
+			targetProxy = 232E91E0273354BE0020EC5B /* PBXContainerItemProxy */;
+		};
+		232E91EB273354BE0020EC5B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 232E91CE273354BC0020EC5B /* LevelUpMeds */;
+			targetProxy = 232E91EA273354BE0020EC5B /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		232E91F1273354BE0020EC5B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		232E91F2273354BE0020EC5B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		232E91F4273354BE0020EC5B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"LevelUpMeds/Preview Content\"";
+				DEVELOPMENT_TEAM = YFXZ6WNN53;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.BrevinB.LevelUpMeds;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		232E91F5273354BE0020EC5B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"LevelUpMeds/Preview Content\"";
+				DEVELOPMENT_TEAM = YFXZ6WNN53;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.BrevinB.LevelUpMeds;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		232E91F7273354BE0020EC5B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = YFXZ6WNN53;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.BrevinB.LevelUpMedsTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/LevelUpMeds.app/LevelUpMeds";
+			};
+			name = Debug;
+		};
+		232E91F8273354BE0020EC5B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = YFXZ6WNN53;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.BrevinB.LevelUpMedsTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/LevelUpMeds.app/LevelUpMeds";
+			};
+			name = Release;
+		};
+		232E91FA273354BE0020EC5B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = YFXZ6WNN53;
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.BrevinB.LevelUpMedsUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = LevelUpMeds;
+			};
+			name = Debug;
+		};
+		232E91FB273354BE0020EC5B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = YFXZ6WNN53;
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.BrevinB.LevelUpMedsUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = LevelUpMeds;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		232E91CA273354BC0020EC5B /* Build configuration list for PBXProject "LevelUpMeds" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				232E91F1273354BE0020EC5B /* Debug */,
+				232E91F2273354BE0020EC5B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		232E91F3273354BE0020EC5B /* Build configuration list for PBXNativeTarget "LevelUpMeds" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				232E91F4273354BE0020EC5B /* Debug */,
+				232E91F5273354BE0020EC5B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		232E91F6273354BE0020EC5B /* Build configuration list for PBXNativeTarget "LevelUpMedsTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				232E91F7273354BE0020EC5B /* Debug */,
+				232E91F8273354BE0020EC5B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		232E91F9273354BE0020EC5B /* Build configuration list for PBXNativeTarget "LevelUpMedsUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				232E91FA273354BE0020EC5B /* Debug */,
+				232E91FB273354BE0020EC5B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 232E91C7273354BC0020EC5B /* Project object */;
+}
