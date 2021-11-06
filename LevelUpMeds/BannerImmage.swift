@@ -17,7 +17,7 @@ struct BannerImmage: View {
             .resizable()
             .clipShape(Rectangle())
             .frame(width: 400, height: 100)
-            .background(Color("Bright Orange"))
+            .background(Color("Dark Grey"))
         
     }
 }

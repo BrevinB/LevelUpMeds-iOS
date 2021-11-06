@@ -9,12 +9,17 @@ import SwiftUI
 
 struct CaretakerView: View {
     @State private var tabSelection = 1
+    
+    init() {
+        UITabBar.appearance().backgroundColor = UIColor.lightGray
+    }
+    
     var body: some View {
         VStack {
             HStack {
                 BannerImmage(image: Image("logo"))
             }
-            .background(Color("Bright Orange"))
+            .background(Color("Dark Grey"))
             Spacer()
             
             
@@ -41,10 +46,13 @@ struct CaretakerView: View {
                     }
                     .tag(3)
             }
+            .background(Color("Creamy Blue"))
+            .accentColor(Color("Bright Orange"))
             
         }
-        .background(Color("Creamy Blue"))
+        
         .edgesIgnoringSafeArea(.all)
+        .navigationBarBackButtonHidden(true)
        
     }
 }

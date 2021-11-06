@@ -16,7 +16,7 @@ struct ContentView: View {
                 Spacer()
                 BannerImmage(image: Image("logo"))
             }
-            .background(Color("Bright Orange"))
+            .background(Color("Dark Grey"))
             
             Spacer()
            
@@ -29,24 +29,13 @@ struct ContentView: View {
                 .padding()
                 
                 
-                Button(action: {
-                    print("patient!")
-                }) {
-                    
-                    HStack {
-                        Text("Patient Login")
-                    }
-                    .padding()
-                }
-                    .background(Color("Bright Orange"))
-                    .cornerRadius(20)
-                
-                
                 NavigationLink(destination: LoginView()) {
-                        Text("Caretaker Login")
+                        Text("Login")
                             .padding()
+                            .frame(width: 250, height: 60)
                             .background(Color("Bright Orange"))
                             .cornerRadius(20)
+
                             .font(.title)
                            }
                   
@@ -59,6 +48,7 @@ struct ContentView: View {
                         Text("Sign Up")
                     }
                     .padding()
+                    .frame(width: 250, height: 60)
                 }
                     .background(Color("Bright Orange"))
                     .cornerRadius(20)

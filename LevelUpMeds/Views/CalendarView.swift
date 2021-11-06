@@ -56,7 +56,7 @@ struct CalendarView: View {
                
                 Text("5:00 PM")
                     .padding()
-                Text("Creatine")
+                Text("Medication 1")
                     .padding()
             }
             .frame(width: 300, height: 100)
@@ -67,7 +67,7 @@ struct CalendarView: View {
                
                 Text("5 PM")
                     .padding()
-                Text("Vitamin D")
+                Text("Medication 2")
                     .padding()
             }
             .frame(width: 300, height: 100)
