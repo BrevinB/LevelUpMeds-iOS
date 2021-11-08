@@ -21,9 +21,12 @@ struct LoginView: View {
         
         NavigationView() {
             VStack() {
+                
                 VStack {
+                    
                     BannerImmage(image: Image("logo"))
                 }
+                .padding()
                 .background(Color("Dark Grey"))
                 Spacer()
                 

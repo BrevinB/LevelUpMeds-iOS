@@ -16,43 +16,85 @@ struct SignUpView: View {
     @State private var passwordIsEqual = false
     
     var body: some View {
-        VStack(alignment: .leading) {
+        VStack() {
             VStack {
-                BannerImmage(image: Image("logo"))
+                Text("**Register**")
+                    .padding()
             }
-            .background(Color("Bright Orange"))
+            .font(.title)
+            .frame(maxWidth: .infinity)
+            .background(Color("Dark Grey"))
+            .foregroundColor(.white)
+            
+        
             
             Spacer()
-            
-            Text("Register:")
-                .padding()
             
             //VStack for First Name Field
             VStack(alignment: .leading) {
                 TextField("First Name", text: $firstName)
-            }.padding()
-           
+                    .padding([.top,.bottom], 2)
+                    .padding(.leading, 5)
+                    .border(.black)
+                    .background(Color.white, alignment: .center)
+                    .padding()
+            }
+         
             //VStack for First Name Field
             VStack(alignment: .leading) {
                 TextField("Last Name", text: $lastName)
-            }.padding()
+                    .padding([.top,.bottom], 2)
+                    .padding(.leading, 5)
+                    .border(.black)
+                    .background(Color.white, alignment: .center)
+                    .padding()
+            }
             
             //VStack for Email
             VStack(alignment: .leading) {
                 TextField("Email", text: $email)
-            }.padding()
+                    .padding([.top,.bottom], 2)
+                    .padding(.leading, 5)
+                    .border(.black)
+                    .background(Color.white, alignment: .center)
+                    .padding()
+                    
+            }
             
             //VStack for Password && Password checking
             VStack(alignment: .leading) {
                 SecureField("Password", text: $password)
+                    .padding([.top,.bottom], 2)
+                    .padding(.leading, 5)
+                    .border(.black)
+                    .background(Color.white, alignment: .center)
+                    .padding()
                 SecureField("Confirm Password", text: $confirmedPassword)
+                    .padding([.top,.bottom], 2)
+                    .padding(.leading, 5)
+                    .border(.black)
+                    .background(Color.white, alignment: .center)
+                    .padding()
                 
                
-            }.padding()
+            }
             
+            Button(action: {
+                print("Setup!")
+            }) {
+                
+                HStack {
+                    Text("Submit")
+                }
+                .padding()
+                .frame(width: 250, height: 60)
+            }
+                .foregroundColor(.white)
+                .background(Color("Bright Orange"))
+                .cornerRadius(20)
             
             Spacer()
-          
+            Spacer()
             
         }
         .font(.title)

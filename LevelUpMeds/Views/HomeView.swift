@@ -13,6 +13,12 @@ struct HomeView: View {
         NavigationView() {
             VStack() {
               
+                VStack {
+                    
+                    BannerImmage(image: Image("logo"))
+                }
+                .background(Color("Dark Grey"))
+                .padding()
                 Spacer()
                 
                 Button(action: {
