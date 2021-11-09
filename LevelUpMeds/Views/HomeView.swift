@@ -58,7 +58,7 @@ struct HomeView: View {
                 Spacer()
                 Spacer()
             }
-            .foregroundColor(Color("Dark Grey"))
+            .foregroundColor(.black)
             .edgesIgnoringSafeArea(.all)
         }
     }

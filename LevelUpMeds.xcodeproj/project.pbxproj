@@ -23,6 +23,8 @@
 		232E920C2733554B0020EC5B /* CalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 232E92042733554A0020EC5B /* CalendarView.swift */; };
 		232E920E2733556A0020EC5B /* BannerImmage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 232E920D2733556A0020EC5B /* BannerImmage.swift */; };
 		232E9212273357BF0020EC5B /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 232E9211273357BF0020EC5B /* SignUpView.swift */; };
+		239E89B3273AFEA000C5C792 /* MedicationSignUpSelection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 239E89B2273AFEA000C5C792 /* MedicationSignUpSelection.swift */; };
+		239E89B5273B00BD00C5C792 /* MedicationInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 239E89B4273B00BD00C5C792 /* MedicationInfo.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -62,6 +64,8 @@
 		232E92042733554A0020EC5B /* CalendarView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarView.swift; sourceTree = "<group>"; };
 		232E920D2733556A0020EC5B /* BannerImmage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BannerImmage.swift; sourceTree = "<group>"; };
 		232E9211273357BF0020EC5B /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
+		239E89B2273AFEA000C5C792 /* MedicationSignUpSelection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedicationSignUpSelection.swift; sourceTree = "<group>"; };
+		239E89B4273B00BD00C5C792 /* MedicationInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedicationInfo.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -149,6 +153,7 @@
 		232E91FC2733554A0020EC5B /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				239E89B1273AFDAD00C5C792 /* Sign Up */,
 				232E91FD2733554A0020EC5B /* PatientManagementView.swift */,
 				232E91FE2733554A0020EC5B /* LoginView.swift */,
 				232E91FF2733554A0020EC5B /* HomeView.swift */,
@@ -156,10 +161,19 @@
 				232E92012733554A0020EC5B /* PatientMenuView.swift */,
 				232E92022733554A0020EC5B /* CaretakerView.swift */,
 				232E92032733554A0020EC5B /* ContentView.swift */,
-				232E9211273357BF0020EC5B /* SignUpView.swift */,
 				232E92042733554A0020EC5B /* CalendarView.swift */,
+				239E89B4273B00BD00C5C792 /* MedicationInfo.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		239E89B1273AFDAD00C5C792 /* Sign Up */ = {
+			isa = PBXGroup;
+			children = (
+				232E9211273357BF0020EC5B /* SignUpView.swift */,
+				239E89B2273AFEA000C5C792 /* MedicationSignUpSelection.swift */,
+			);
+			path = "Sign Up";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -295,12 +309,14 @@
 				232E92062733554A0020EC5B /* LoginView.swift in Sources */,
 				232E920E2733556A0020EC5B /* BannerImmage.swift in Sources */,
 				232E92072733554A0020EC5B /* HomeView.swift in Sources */,
+				239E89B3273AFEA000C5C792 /* MedicationSignUpSelection.swift in Sources */,
 				232E920B2733554B0020EC5B /* ContentView.swift in Sources */,
 				232E91D3273354BC0020EC5B /* LevelUpMedsApp.swift in Sources */,
 				232E9212273357BF0020EC5B /* SignUpView.swift in Sources */,
 				232E920A2733554B0020EC5B /* CaretakerView.swift in Sources */,
 				232E920C2733554B0020EC5B /* CalendarView.swift in Sources */,
 				232E92052733554A0020EC5B /* PatientManagementView.swift in Sources */,
+				239E89B5273B00BD00C5C792 /* MedicationInfo.swift in Sources */,
 				232E92082733554A0020EC5B /* AccountView.swift in Sources */,
 				232E92092733554B0020EC5B /* PatientMenuView.swift in Sources */,
 			);

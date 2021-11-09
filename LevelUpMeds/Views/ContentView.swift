@@ -40,25 +40,22 @@ struct ContentView: View {
                            }
                   
                 
-                Button(action: {
-                    print("Setup!")
-                }) {
-                    
-                    HStack {
+                NavigationLink(destination: SignUpView()) {
                         Text("Sign Up")
-                    }
-                    .padding()
-                    .frame(width: 250, height: 60)
-                }
-                    .background(Color("Bright Orange"))
-                    .cornerRadius(20)
+                            .padding()
+                            .frame(width: 250, height: 60)
+                            .background(Color("Bright Orange"))
+                            .cornerRadius(20)
+
+                            .font(.title)
+                           }
                     
             
                 Spacer()
                 Spacer()
             }
             .padding(10)
-            .foregroundColor(Color("Dark Grey"))
+            .foregroundColor(.black)
             
             
         }
@@ -68,6 +65,7 @@ struct ContentView: View {
             
         
         }
+        
         
         
     }
