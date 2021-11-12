@@ -24,7 +24,6 @@ struct LoginView: View {
             VStack() {
                     
                     VStack {
-                        
                         BannerImmage(image: Image("logo"))
                     }
                     .padding()
@@ -98,6 +97,7 @@ struct LoginView: View {
                 }
                 .foregroundColor(.black)
                 .edgesIgnoringSafeArea(.all)
+                .navigationBarBackButtonHidden(true)
         }
     }
 }

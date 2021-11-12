@@ -15,70 +15,62 @@ struct NewUserMedication: View {
     
     var body: some View {
         NavigationView {
-            VStack() {
-                Spacer()
-                HStack (alignment: .center, spacing: 10) {
-                    TextField ("First Name", text: $firstName)
-                        .frame(height: 60)
-                }
-                .padding([.top,.bottom], 2)
-                .padding(.leading, 5)
-                .background(Color.white, alignment: .center)
-                .cornerRadius(10)
-                .frame(width: 300)
-                .padding(20)
-            
-                HStack (alignment: .center, spacing: 10) {
-                    TextField ("Last Name", text: $lastName)
-                        .frame(height: 60)
-                }
-                .padding([.top,.bottom], 2)
-                .padding(.leading, 5)
-                .background(Color.white, alignment: .center)
-                .cornerRadius(10)
-                .frame(width: 300)
-                .padding(20)
-                
-                
-                HStack {
-                    Image(systemName: "calendar")
-                    DatePicker("Birthday:", selection: $birthday, in: ...Date(), displayedComponents: .date)
-                    
-                }
-                .padding([.top,.bottom], 2)
-                .padding(.leading, 5)
-                .background(Color.white, alignment: .center)
-                .cornerRadius(10)
-                .frame(width: 300)
-                .padding(50)
-                
-                Spacer()
-                Spacer()
-                
-                NavigationLink(destination: MedicationInfo()) {
-                    HStack {
-                        Spacer()
-                        ZStack(alignment: .trailing) {
-                            Text("Next")
-                                .padding(10)
-                                .frame(width: 100, alignment: .leading)
-                                .background(Color("Bright Orange"))
-                                .cornerRadius(20)
-                                .foregroundColor(.black)
-                               
-                                
-                            Image(systemName: "arrow.right")
-                                .font(.system(size: 25))
-                                
-                        }
-                        .font(.title)
+            ZStack {
+                BackgroundColor(color: "Creamy Blue")
+                VStack() {
+                    Spacer()
+                    HStack (alignment: .center, spacing: 10) {
+                        TextField ("First Name", text: $firstName)
+                            .frame(height: 60)
                     }
+                    .padding([.top,.bottom], 2)
+                    .padding(.leading, 5)
+                    .background(Color.white, alignment: .center)
+                    .cornerRadius(10)
+                    .frame(width: 300)
+                    .padding(20)
+                
+                    HStack (alignment: .center, spacing: 10) {
+                        TextField ("Last Name", text: $lastName)
+                            .frame(height: 60)
+                    }
+                    .padding([.top,.bottom], 2)
+                    .padding(.leading, 5)
+                    .background(Color.white, alignment: .center)
+                    .cornerRadius(10)
+                    .frame(width: 300)
+                    .padding(20)
+                    
+                
+                    
+                    Spacer()
+                    Spacer()
+                    
+                    NavigationLink(destination: MedicationInfo()) {
+                        HStack {
+                            Spacer()
+                            ZStack(alignment: .trailing) {
+                                Text("Next")
+                                    .padding(10)
+                                    .frame(width: 100, alignment: .leading)
+                                    .background(Color("Bright Orange"))
+                                    .cornerRadius(20)
+                                    .foregroundColor(.black)
+                                   
+                                    
+                                Image(systemName: "arrow.right")
+                                    .font(.system(size: 25))
+                                    
+                            }
+                            .font(.title)
+                        }
+                        
+                    }
+                   
                     
                 }
-               
-                
+                .foregroundColor(.black)
             }
-            .foregroundColor(.black)
             
         }
     }

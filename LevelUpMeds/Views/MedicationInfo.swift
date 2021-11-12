@@ -10,6 +10,15 @@ import SwiftUI
 struct MedicationInfo: View {
     
     @State private var medication = ""
+    @State private var monday = false
+    @State private var tuesday = false
+    @State private var wednesday = false
+    @State private var thursday = false
+    @State private var friday = false
+    @State private var saturday = false
+    @State private var sunday = false
+    @State private var date = Date()
+    
     var body: some View {
         NavigationView() {
     
@@ -30,16 +39,29 @@ struct MedicationInfo: View {
                     .padding(50)
                     
                     Text("Days Taken Per Week:")
-                    HStack() {
-                        Text("S")
-                        Text("M")
-                        Text("T")
-                        Text("W")
-                        Text("T")
-                        Text("F")
-                        Text("S")
+                        
+                    HStack(spacing: 10) {
+                            
+                            DayOfWeek(day: "S", isSelected: $sunday)
+                            DayOfWeek(day: "M", isSelected: $monday)
+                            DayOfWeek(day: "T", isSelected: $tuesday)
+                            DayOfWeek(day: "W", isSelected: $wednesday)
+                            DayOfWeek(day: "T", isSelected: $thursday)
+                            DayOfWeek(day: "F", isSelected: $friday)
+                            DayOfWeek(day: "S", isSelected: $saturday)
+                            
+                        }
+                       
+                    
+                    Text("Times of Day")
+                    DatePicker("Please enter a time", selection: $date, displayedComponents: .hourAndMinute )
+                        .labelsHidden()
+                    
+                    Button(action: {
+                        print("ADD TIME")
+                    }) {
+                        Text("Add Time")
                     }
-                    Text("Times Taken Per Day")
                 }
             }
             
@@ -52,3 +74,51 @@ struct MedicationInfo_Previews: PreviewProvider {
         MedicationInfo()
     }
 }
+
+struct DayOfWeek: View {
+    var day: String
+    @Binding var isSelected: Bool
+    
+    var body: some View {
+        ZStack {
+            
+            if isSelected {
+                
+                daySelected()
+                
+            }
+            
+                Button(action: {
+                    isSelected.toggle()
+                    
+                }) {
+                    
+                    Text(day)
+                        .padding(1)
+                        .foregroundColor(.black)
+                }
+                
+        }
+    }
+    
+}
+
+struct daySelected: View {
+    var body: some View {
+        Circle()
+            .fill(.orange)
+            .frame(width: 40, height: 40)
+    }
+}
+
+//struct displayDate: View {
+//    
+//    @Binding var date = Date()
+//    
+//    var body: some View {
+//        DatePicker("Please enter a time", selection: date, displayedComponents: .hourAndMinute )
+//            .labelsHidden()
+//    }
+//}
+
+

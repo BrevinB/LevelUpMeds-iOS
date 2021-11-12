@@ -27,11 +27,16 @@ struct MedicationSignUpSelection: View {
                     
                     Spacer()
                     
+                    
+                    Text("Who Are You Entering Medication For?")
+                    .font(.title)
+                    .padding(.bottom, 50)
+                
                     Button(action: {
                         self.personalMedication.toggle()
                     }) {
-                        Text("Personal \nMedication")
-                            .frame(width: 300, height: 220)
+                        Text("Myself")
+                            .frame(width: 300, height: 100)
                             .background(Color("Bright Orange"))
                             .cornerRadius(20)
                             .padding()
@@ -43,8 +48,8 @@ struct MedicationSignUpSelection: View {
                     Button(action: {
                         self.patientMedication.toggle()
                     }) {
-                        Text("Patient \nMedication")
-                            .frame(width: 300, height: 220)
+                        Text("Someone Else")
+                            .frame(width: 300, height: 100)
                             .background(Color("Bright Orange"))
                             .cornerRadius(20)
                             .padding()

@@ -24,7 +24,6 @@ struct SignUpView: View {
                     Spacer()
                     
                     VStack {
-    //                    Text(" ")
                         BannerImmage(image: Image("logo"))
                     }
                     .frame(maxWidth: .infinity)
@@ -39,9 +38,10 @@ struct SignUpView: View {
                         TextField("First Name", text: $firstName)
                             .padding([.top,.bottom], 2)
                             .padding(.leading, 5)
-                            .border(.black)
                             .background(Color.white, alignment: .center)
-                            .padding()
+                            .cornerRadius(10)
+                            .frame(width: 350)
+                            .padding(20)
                     }
                  
                     //VStack for First Name Field
@@ -49,9 +49,10 @@ struct SignUpView: View {
                         TextField("Last Name", text: $lastName)
                             .padding([.top,.bottom], 2)
                             .padding(.leading, 5)
-                            .border(.black)
                             .background(Color.white, alignment: .center)
-                            .padding()
+                            .cornerRadius(10)
+                            .frame(width: 350)
+                            .padding(20)
                     }
                     
                     //VStack for Email
@@ -59,9 +60,10 @@ struct SignUpView: View {
                         TextField("Email", text: $email)
                             .padding([.top,.bottom], 2)
                             .padding(.leading, 5)
-                            .border(.black)
                             .background(Color.white, alignment: .center)
-                            .padding()
+                            .cornerRadius(10)
+                            .frame(width: 350)
+                            .padding(20)
                             
                     }
                     
@@ -70,32 +72,38 @@ struct SignUpView: View {
                         SecureField("Password", text: $password)
                             .padding([.top,.bottom], 2)
                             .padding(.leading, 5)
-                            .border(.black)
                             .background(Color.white, alignment: .center)
-                            .padding()
+                            .cornerRadius(10)
+                            .frame(width: 350)
+                            .padding(20)
                         SecureField("Confirm Password", text: $confirmedPassword)
                             .padding([.top,.bottom], 2)
                             .padding(.leading, 5)
-                            .border(.black)
                             .background(Color.white, alignment: .center)
-                            .padding()
+                            .cornerRadius(10)
+                            .frame(width: 350)
+                            .padding(20)
                         
                        
                     }
                     .padding([.bottom], 50)
                     
-                    Button(action: submitSignUp) {
+//                    Button(action: submitSignUp) {
+//
+//                        HStack {
+//                            Text("Submit")
+//                        }
+//                        .padding()
+//                        .frame(width: 250, height: 60)
+//                    }
+//                        .foregroundColor(.black)
+//                        .buttonStyle(.borderedProminent)
+//                        .buttonBorderShape(.capsule)
+//                        .tint(Color("Bright Orange"))
+                    NavigationLinkButtons(text: "Submit",
+                                          color: "Bright Orange",
+                                          view: AnyView(MedicationSignUpSelection()))
                         
-                        HStack {
-                            Text("Submit")
-                        }
-                        .padding()
-                        .frame(width: 250, height: 60)
-                    }
-                        .foregroundColor(.black)
-                        .buttonStyle(.borderedProminent)
-                        .buttonBorderShape(.capsule)
-                        .tint(Color("Bright Orange"))
 
                     
                     Spacer()
@@ -118,6 +126,7 @@ struct SignUpView: View {
             }
             }
         }
+        .foregroundColor(.black)
         .navigationBarBackButtonHidden(true)
     }
 }
@@ -129,10 +138,10 @@ struct SignUpView_Previews: PreviewProvider {
     }
 }
 
-func submitSignUp() {
-    if let window = UIApplication.shared.windows.first {
-        window.rootViewController = UIHostingController(rootView: MedicationSignUpSelection())
-        window.makeKeyAndVisible()
-    }
-}
+//func submitSignUp() {
+//    if let window = UIApplication.shared.windows.first {
+//        window.rootViewController = UIHostingController(rootView: MedicationSignUpSelection())
+//        window.makeKeyAndVisible()
+//    }
+//}
 

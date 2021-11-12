@@ -23,12 +23,6 @@ struct CaretakerView: View {
                 
                 TabView(selection: $tabSelection) {
                     
-                    HomeView(tabSelection: $tabSelection)
-                        .tabItem {
-                            Image(systemName: "house.fill")
-                            Text("home")
-                        }
-                        .tag(1)
                     
                     CalendarView()
                         .tabItem {
@@ -37,6 +31,12 @@ struct CaretakerView: View {
                         }
                         .tag(2)
                     
+                    PatientMenuView()
+                        .tabItem {
+                            Image(systemName: "person.3.fill")
+                            Text("Profiles")
+                        }
+                    
                     AccountView()
                         .tabItem {
                             Image(systemName: "person.crop.circle")
@@ -44,13 +44,12 @@ struct CaretakerView: View {
                         }
                         .tag(3)
                 }
-                .background(Color("Creamy Blue"))
                 .accentColor(Color("Bright Orange"))
                 
             }
             
             .edgesIgnoringSafeArea(.all)
-        .navigationBarBackButtonHidden(true)
+            .navigationBarBackButtonHidden(true)
         }
        
     }
