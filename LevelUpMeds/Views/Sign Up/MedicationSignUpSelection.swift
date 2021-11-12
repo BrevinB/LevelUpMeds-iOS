@@ -16,55 +16,59 @@ struct MedicationSignUpSelection: View {
     var body: some View {
         
             
+        ZStack {
+            
+            BackgroundColor(color: "Creamy Blue")
+            
             VStack() {
-                
-                BannerImmage(image: Image("logo"))
-                
-                
-                Spacer()
-                
-                Button(action: {
-                    self.personalMedication.toggle()
-                }) {
-                    Text("Personal \nMedication")
-                        .frame(width: 300, height: 220)
-                        .background(Color("Bright Orange"))
-                        .cornerRadius(20)
-                        .padding()
-                        .font(.title)
-                }.sheet(isPresented: $personalMedication) {
-                    MedicationInfo()
+                    
+                    BannerImmage(image: Image("logo"))
+                    
+                    
+                    Spacer()
+                    
+                    Button(action: {
+                        self.personalMedication.toggle()
+                    }) {
+                        Text("Personal \nMedication")
+                            .frame(width: 300, height: 220)
+                            .background(Color("Bright Orange"))
+                            .cornerRadius(20)
+                            .padding()
+                            .font(.title)
+                    }.sheet(isPresented: $personalMedication) {
+                        MedicationInfo()
+                    }
+                    
+                    Button(action: {
+                        self.patientMedication.toggle()
+                    }) {
+                        Text("Patient \nMedication")
+                            .frame(width: 300, height: 220)
+                            .background(Color("Bright Orange"))
+                            .cornerRadius(20)
+                            .padding()
+                            .font(.title)
+                    }.sheet(isPresented: $patientMedication) {
+                        NewUserMedication()
+                    }
+                    Spacer()
+                    Spacer()
+                    Button(action: skipMedication) {
+                        Text("Skip Medication Setup")
+                            .padding()
+                            .frame(width: 250, height: 30)
+                            .background(.gray)
+                            .cornerRadius(20)
+                    }
+                    
+                    Spacer()
+                    Spacer()
+                    
                 }
-                
-                Button(action: {
-                    self.patientMedication.toggle()
-                }) {
-                    Text("Patient \nMedication")
-                        .frame(width: 300, height: 220)
-                        .background(Color("Bright Orange"))
-                        .cornerRadius(20)
-                        .padding()
-                        .font(.title)
-                }.sheet(isPresented: $patientMedication) {
-                    NewUserMedication()
-                }
-                Spacer()
-                Spacer()
-                Button(action: skipMedication) {
-                    Text("Skip Medication Setup")
-                        .padding()
-                        .frame(width: 250, height: 30)
-                        .background(.gray)
-                        .cornerRadius(20)
-                }
-                
-                Spacer()
-                Spacer()
-                
-            }
-            .foregroundColor(.black)
-            .background(Color("Creamy Blue"))
+                .foregroundColor(.black)
             .ignoresSafeArea()
+        }
     }
         
 }

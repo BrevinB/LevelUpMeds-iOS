@@ -18,102 +18,104 @@ struct SignUpView: View {
     var body: some View {
         NavigationView() {
     
-            VStack() {
-                Spacer()
-                
-                VStack {
-//                    Text(" ")
-                    BannerImmage(image: Image("logo"))
-                }
-                .frame(maxWidth: .infinity)
-                .background(Color("Dark Grey"))
-                .padding()
-                
-                
-                Spacer()
-                
-                //VStack for First Name Field
-                VStack(alignment: .leading) {
-                    TextField("First Name", text: $firstName)
-                        .padding([.top,.bottom], 2)
-                        .padding(.leading, 5)
-                        .border(.black)
-                        .background(Color.white, alignment: .center)
-                        .padding()
-                }
-             
-                //VStack for First Name Field
-                VStack(alignment: .leading) {
-                    TextField("Last Name", text: $lastName)
-                        .padding([.top,.bottom], 2)
-                        .padding(.leading, 5)
-                        .border(.black)
-                        .background(Color.white, alignment: .center)
-                        .padding()
-                }
-                
-                //VStack for Email
-                VStack(alignment: .leading) {
-                    TextField("Email", text: $email)
-                        .padding([.top,.bottom], 2)
-                        .padding(.leading, 5)
-                        .border(.black)
-                        .background(Color.white, alignment: .center)
-                        .padding()
-                        
-                }
-                
-                //VStack for Password && Password checking
-                VStack(alignment: .leading) {
-                    SecureField("Password", text: $password)
-                        .padding([.top,.bottom], 2)
-                        .padding(.leading, 5)
-                        .border(.black)
-                        .background(Color.white, alignment: .center)
-                        .padding()
-                    SecureField("Confirm Password", text: $confirmedPassword)
-                        .padding([.top,.bottom], 2)
-                        .padding(.leading, 5)
-                        .border(.black)
-                        .background(Color.white, alignment: .center)
-                        .padding()
+            ZStack {
+                BackgroundColor(color: "Creamy Blue")
+                VStack() {
+                    Spacer()
                     
-                   
-                }
-                .padding([.bottom], 50)
-                
-                Button(action: submitSignUp) {
-                    
-                    HStack {
-                        Text("Submit")
+                    VStack {
+    //                    Text(" ")
+                        BannerImmage(image: Image("logo"))
                     }
+                    .frame(maxWidth: .infinity)
+                    .background(Color("Dark Grey"))
                     .padding()
-                    .frame(width: 250, height: 60)
-                }
-                    .foregroundColor(.black)
-                    .buttonStyle(.borderedProminent)
-                    .buttonBorderShape(.capsule)
-                    .tint(Color("Bright Orange"))
-
-                
-                Spacer()
-                Spacer()
-                
-            }
-            .font(.title)
-            .background(Color("Creamy Blue"))
-            .edgesIgnoringSafeArea(.all)
-            .navigationBarTitleDisplayMode(.inline)
-            .toolbar {
-                ToolbarItem(placement: .principal) {
-                    HStack {
-                        Text("**Sign Up**").font(.title)
-                            .foregroundColor(.black)
+                    
+                    
+                    Spacer()
+                    
+                    //VStack for First Name Field
+                    VStack(alignment: .leading) {
+                        TextField("First Name", text: $firstName)
+                            .padding([.top,.bottom], 2)
+                            .padding(.leading, 5)
+                            .border(.black)
+                            .background(Color.white, alignment: .center)
                             .padding()
+                    }
+                 
+                    //VStack for First Name Field
+                    VStack(alignment: .leading) {
+                        TextField("Last Name", text: $lastName)
+                            .padding([.top,.bottom], 2)
+                            .padding(.leading, 5)
+                            .border(.black)
+                            .background(Color.white, alignment: .center)
+                            .padding()
+                    }
+                    
+                    //VStack for Email
+                    VStack(alignment: .leading) {
+                        TextField("Email", text: $email)
+                            .padding([.top,.bottom], 2)
+                            .padding(.leading, 5)
+                            .border(.black)
+                            .background(Color.white, alignment: .center)
+                            .padding()
+                            
+                    }
+                    
+                    //VStack for Password && Password checking
+                    VStack(alignment: .leading) {
+                        SecureField("Password", text: $password)
+                            .padding([.top,.bottom], 2)
+                            .padding(.leading, 5)
+                            .border(.black)
+                            .background(Color.white, alignment: .center)
+                            .padding()
+                        SecureField("Confirm Password", text: $confirmedPassword)
+                            .padding([.top,.bottom], 2)
+                            .padding(.leading, 5)
+                            .border(.black)
+                            .background(Color.white, alignment: .center)
+                            .padding()
+                        
                        
                     }
-                }
+                    .padding([.bottom], 50)
+                    
+                    Button(action: submitSignUp) {
+                        
+                        HStack {
+                            Text("Submit")
+                        }
+                        .padding()
+                        .frame(width: 250, height: 60)
+                    }
+                        .foregroundColor(.black)
+                        .buttonStyle(.borderedProminent)
+                        .buttonBorderShape(.capsule)
+                        .tint(Color("Bright Orange"))
 
+                    
+                    Spacer()
+                    Spacer()
+                    
+                }
+                .font(.title)
+                .edgesIgnoringSafeArea(.all)
+                .navigationBarTitleDisplayMode(.inline)
+                .toolbar {
+                    ToolbarItem(placement: .principal) {
+                        HStack {
+                            Text("**Sign Up**").font(.title)
+                                .foregroundColor(.black)
+                                .padding()
+                           
+                        }
+                    }
+
+            }
             }
         }
         .navigationBarBackButtonHidden(true)

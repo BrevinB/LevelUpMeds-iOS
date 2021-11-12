@@ -15,40 +15,43 @@ struct CaretakerView: View {
     }
     
     var body: some View {
-        VStack {
+        ZStack {
             
+            BackgroundColor(color: "Creamy Blue")
             
-            
-            TabView(selection: $tabSelection) {
+            VStack {
                 
-                HomeView(tabSelection: $tabSelection)
-                    .tabItem {
-                        Image(systemName: "house.fill")
-                        Text("home")
-                    }
-                    .tag(1)
+                TabView(selection: $tabSelection) {
+                    
+                    HomeView(tabSelection: $tabSelection)
+                        .tabItem {
+                            Image(systemName: "house.fill")
+                            Text("home")
+                        }
+                        .tag(1)
+                    
+                    CalendarView()
+                        .tabItem {
+                            Image(systemName: "calendar")
+                            Text("Calendar")
+                        }
+                        .tag(2)
+                    
+                    AccountView()
+                        .tabItem {
+                            Image(systemName: "person.crop.circle")
+                            Text("Account")
+                        }
+                        .tag(3)
+                }
+                .background(Color("Creamy Blue"))
+                .accentColor(Color("Bright Orange"))
                 
-                CalendarView()
-                    .tabItem {
-                        Image(systemName: "calendar")
-                        Text("Calendar")
-                    }
-                    .tag(2)
-                
-                AccountView()
-                    .tabItem {
-                        Image(systemName: "person.crop.circle")
-                        Text("Account")
-                    }
-                    .tag(3)
             }
-            .background(Color("Creamy Blue"))
-            .accentColor(Color("Bright Orange"))
             
-        }
-        
-        .edgesIgnoringSafeArea(.all)
+            .edgesIgnoringSafeArea(.all)
         .navigationBarBackButtonHidden(true)
+        }
        
     }
 }

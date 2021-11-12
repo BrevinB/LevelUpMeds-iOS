@@ -12,8 +12,8 @@ struct ContentView: View {
         
         NavigationView() {
             ZStack {
-                Color("Creamy Blue")
-                    .edgesIgnoringSafeArea(.all)
+                
+                BackgroundColor(color: "Creamy Blue")
                 
                 VStack() {
                     
