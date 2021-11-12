@@ -14,14 +14,11 @@ struct MedicationSignUpSelection: View {
     @State private var skipMedicaiton = false
     
     var body: some View {
-        NavigationView() {
+        
+            
             VStack() {
                 
-                VStack {
-                    Text(" ")
-                }
-                .frame(maxWidth: .infinity)
-                .background(Color("Dark Grey"))
+                BannerImmage(image: Image("logo"))
                 
                 
                 Spacer()
@@ -29,21 +26,58 @@ struct MedicationSignUpSelection: View {
                 Button(action: {
                     self.personalMedication.toggle()
                 }) {
-                    Text("Personal Medication")
+                    Text("Personal \nMedication")
+                        .frame(width: 300, height: 220)
+                        .background(Color("Bright Orange"))
+                        .cornerRadius(20)
+                        .padding()
+                        .font(.title)
                 }.sheet(isPresented: $personalMedication) {
                     MedicationInfo()
+                }
+                
+                Button(action: {
+                    self.patientMedication.toggle()
+                }) {
+                    Text("Patient \nMedication")
+                        .frame(width: 300, height: 220)
+                        .background(Color("Bright Orange"))
+                        .cornerRadius(20)
+                        .padding()
+                        .font(.title)
+                }.sheet(isPresented: $patientMedication) {
+                    NewUserMedication()
+                }
+                Spacer()
+                Spacer()
+                Button(action: skipMedication) {
+                    Text("Skip Medication Setup")
+                        .padding()
+                        .frame(width: 250, height: 30)
+                        .background(.gray)
+                        .cornerRadius(20)
                 }
                 
                 Spacer()
                 Spacer()
                 
             }
-        }
+            .foregroundColor(.black)
+            .background(Color("Creamy Blue"))
+            .ignoresSafeArea()
     }
+        
 }
 
 struct MedicationSignUpSelection_Previews: PreviewProvider {
     static var previews: some View {
         MedicationSignUpSelection()
+    }
+}
+
+func skipMedication() {
+    if let window = UIApplication.shared.windows.first {
+        window.rootViewController = UIHostingController(rootView: CaretakerView())
+        window.makeKeyAndVisible()
     }
 }

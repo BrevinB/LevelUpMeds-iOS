@@ -20,11 +20,14 @@ struct SignUpView: View {
     
             VStack() {
                 Spacer()
+                
                 VStack {
-                    Text(" ")
+//                    Text(" ")
+                    BannerImmage(image: Image("logo"))
                 }
                 .frame(maxWidth: .infinity)
                 .background(Color("Dark Grey"))
+                .padding()
                 
                 
                 Spacer()
@@ -79,9 +82,7 @@ struct SignUpView: View {
                 }
                 .padding([.bottom], 50)
                 
-                Button(action: {
-                    print("Setup!")
-                }) {
+                Button(action: submitSignUp) {
                     
                     HStack {
                         Text("Submit")
@@ -90,8 +91,10 @@ struct SignUpView: View {
                     .frame(width: 250, height: 60)
                 }
                     .foregroundColor(.black)
-                    .background(Color("Bright Orange"))
-                    .cornerRadius(20)
+                    .buttonStyle(.borderedProminent)
+                    .buttonBorderShape(.capsule)
+                    .tint(Color("Bright Orange"))
+
                 
                 Spacer()
                 Spacer()
@@ -101,11 +104,12 @@ struct SignUpView: View {
             .background(Color("Creamy Blue"))
             .edgesIgnoringSafeArea(.all)
             .navigationBarTitleDisplayMode(.inline)
-            .toolbar { // <2>
-                ToolbarItem(placement: .principal) { // <3>
-                    VStack {
-                        Text("Register").font(.title)
-                            .foregroundColor(.white)
+            .toolbar {
+                ToolbarItem(placement: .principal) {
+                    HStack {
+                        Text("**Sign Up**").font(.title)
+                            .foregroundColor(.black)
+                            .padding()
                        
                     }
                 }
@@ -122,3 +126,11 @@ struct SignUpView_Previews: PreviewProvider {
 .previewInterfaceOrientation(.portrait)
     }
 }
+
+func submitSignUp() {
+    if let window = UIApplication.shared.windows.first {
+        window.rootViewController = UIHostingController(rootView: MedicationSignUpSelection())
+        window.makeKeyAndVisible()
+    }
+}
+

@@ -16,11 +16,7 @@ struct CaretakerView: View {
     
     var body: some View {
         VStack {
-            HStack {
-                BannerImmage(image: Image("logo"))
-            }
-            .background(Color("Dark Grey"))
-            Spacer()
+            
             
             
             TabView(selection: $tabSelection) {
