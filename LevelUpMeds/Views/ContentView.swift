@@ -9,68 +9,65 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        ZStack {
-            Color(.blue)
-                .edgesIgnoringSafeArea(.all)
-            
-            NavigationView() {
-            VStack() {
+        
+        NavigationView() {
+            ZStack {
+                Color("Creamy Blue")
+                    .edgesIgnoringSafeArea(.all)
                 
-                VStack {
-                    Spacer()
-                    BannerImmage(image: Image("logo"))
-                }
-                
-                Spacer()
-               
-                Group() {
-                    Spacer()
+                VStack() {
                     
-                    HStack {
-                        Text("WELCOME!")
+                    VStack {
+                        Spacer()
+                        BannerImmage(image: Image("logo"))
                     }
-                    .padding()
                     
-                    
-                    NavigationLink(destination: LoginView()) {
-                            Text("Login")
-                                .padding()
-                                .frame(width: 250, height: 60)
-                                .background(Color("Bright Orange"))
-                                .cornerRadius(20)
-
-                                .font(.title)
-                               }
-                      
-                    
-                    NavigationLink(destination: SignUpView()) {
-                            Text("Sign Up")
-                                .padding()
-                                .frame(width: 250, height: 60)
-                                .background(Color("Bright Orange"))
-                                .cornerRadius(20)
-                                .font(.title)
-                               }
+                    Spacer()
+                   
+                    Group() {
+                        Spacer()
                         
-                
-                    Spacer()
-                    Spacer()
+                        HStack {
+                            Text("WELCOME!")
+                        }
+                        .padding()
+                        
+                        
+                        NavigationLink(destination: LoginView()) {
+                                Text("Login")
+                                    .padding()
+                                    .frame(width: 250, height: 60)
+                                    .background(Color("Bright Orange"))
+                                    .cornerRadius(20)
+
+                                    .font(.title)
+                                   }
+                          
+                        
+                        NavigationLink(destination: SignUpView()) {
+                                Text("Sign Up")
+                                    .padding()
+                                    .frame(width: 250, height: 60)
+                                    .background(Color("Bright Orange"))
+                                    .cornerRadius(20)
+                                    .font(.title)
+                                   }
+                            
+                    
+                        Spacer()
+                        Spacer()
+                    }
+                    .padding(10)
+                    .foregroundColor(.black)
+                    
+                    
                 }
-                .padding(10)
-                .foregroundColor(.black)
-                
-                
-            }
-                .font(.title)
+                    .font(.title)
                 .edgesIgnoringSafeArea(.all)
+            }
                 
             
             }
-        }
-        
-        
-        
-        
     }
 }
 
