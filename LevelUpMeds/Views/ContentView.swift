@@ -33,25 +33,14 @@ struct ContentView: View {
                         .padding()
                         
                         
-                        NavigationLink(destination: LoginView()) {
-                                Text("Login")
-                                    .padding()
-                                    .frame(width: 250, height: 60)
-                                    .background(Color("Bright Orange"))
-                                    .cornerRadius(20)
-
-                                    .font(.title)
-                                   }
+                        NavigationLinkButtons(text: "Login",
+                                              color: "Bright Orange",
+                                              view: AnyView(LoginView()))
                           
                         
-                        NavigationLink(destination: SignUpView()) {
-                                Text("Sign Up")
-                                    .padding()
-                                    .frame(width: 250, height: 60)
-                                    .background(Color("Bright Orange"))
-                                    .cornerRadius(20)
-                                    .font(.title)
-                                   }
+                        NavigationLinkButtons(text: "Sign Up",
+                                              color: "Bright Orange",
+                                              view: AnyView(SignUpView()))
                             
                     
                         Spacer()
