@@ -23,6 +23,8 @@
 		232E920C2733554B0020EC5B /* CalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 232E92042733554A0020EC5B /* CalendarView.swift */; };
 		232E920E2733556A0020EC5B /* BannerImmage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 232E920D2733556A0020EC5B /* BannerImmage.swift */; };
 		232E9212273357BF0020EC5B /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 232E9211273357BF0020EC5B /* SignUpView.swift */; };
+		237C587E273EE3C30071A010 /* BackgroundColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 237C587D273EE3C30071A010 /* BackgroundColor.swift */; };
+		237C5880273EE6D80071A010 /* NavigationLinkButtons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 237C587F273EE6D80071A010 /* NavigationLinkButtons.swift */; };
 		239E89B3273AFEA000C5C792 /* MedicationSignUpSelection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 239E89B2273AFEA000C5C792 /* MedicationSignUpSelection.swift */; };
 		239E89B5273B00BD00C5C792 /* MedicationInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 239E89B4273B00BD00C5C792 /* MedicationInfo.swift */; };
 		239E89B7273B426E00C5C792 /* NewUserMedication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 239E89B6273B426E00C5C792 /* NewUserMedication.swift */; };
@@ -67,6 +69,8 @@
 		232E92042733554A0020EC5B /* CalendarView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarView.swift; sourceTree = "<group>"; };
 		232E920D2733556A0020EC5B /* BannerImmage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BannerImmage.swift; sourceTree = "<group>"; };
 		232E9211273357BF0020EC5B /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
+		237C587D273EE3C30071A010 /* BackgroundColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundColor.swift; sourceTree = "<group>"; };
+		237C587F273EE6D80071A010 /* NavigationLinkButtons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationLinkButtons.swift; sourceTree = "<group>"; };
 		239E89B2273AFEA000C5C792 /* MedicationSignUpSelection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedicationSignUpSelection.swift; sourceTree = "<group>"; };
 		239E89B4273B00BD00C5C792 /* MedicationInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedicationInfo.swift; sourceTree = "<group>"; };
 		239E89B6273B426E00C5C792 /* NewUserMedication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewUserMedication.swift; sourceTree = "<group>"; };
@@ -129,6 +133,8 @@
 				232E91D6273354BE0020EC5B /* Assets.xcassets */,
 				232E91D8273354BE0020EC5B /* Preview Content */,
 				239E89BA273B48A400C5C792 /* SwitchViews.swift */,
+				237C587D273EE3C30071A010 /* BackgroundColor.swift */,
+				237C587F273EE6D80071A010 /* NavigationLinkButtons.swift */,
 			);
 			path = LevelUpMeds;
 			sourceTree = "<group>";
@@ -332,6 +338,7 @@
 				239E89B3273AFEA000C5C792 /* MedicationSignUpSelection.swift in Sources */,
 				232E920B2733554B0020EC5B /* ContentView.swift in Sources */,
 				232E91D3273354BC0020EC5B /* LevelUpMedsApp.swift in Sources */,
+				237C5880273EE6D80071A010 /* NavigationLinkButtons.swift in Sources */,
 				232E9212273357BF0020EC5B /* SignUpView.swift in Sources */,
 				232E920A2733554B0020EC5B /* CaretakerView.swift in Sources */,
 				232E920C2733554B0020EC5B /* CalendarView.swift in Sources */,
@@ -339,6 +346,7 @@
 				239E89B5273B00BD00C5C792 /* MedicationInfo.swift in Sources */,
 				232E92082733554A0020EC5B /* AccountView.swift in Sources */,
 				232E92092733554B0020EC5B /* PatientMenuView.swift in Sources */,
+				237C587E273EE3C30071A010 /* BackgroundColor.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

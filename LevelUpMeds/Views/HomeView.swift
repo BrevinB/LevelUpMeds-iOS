@@ -11,55 +11,58 @@ struct HomeView: View {
     @Binding var tabSelection: Int
     var body: some View {
         NavigationView() {
-            VStack() {
-              
-                VStack {
+            ZStack {
+                BackgroundColor(color: "Creamy Blue")
+                VStack() {
+                  
+                    VStack {
+                        
+                        BannerImmage(image: Image("logo"))
+                    }
+                    .background(Color("Dark Grey"))
+                    .padding()
+                    Spacer()
                     
-                    BannerImmage(image: Image("logo"))
-                }
-                .background(Color("Dark Grey"))
-                .padding()
-                Spacer()
+                    Button(action: {
+                        self.tabSelection = 2
+                    }) {
+                        Text("Calendar")
+                            .frame(width: 300, height: 50)
+                            .background(Color("Bright Orange"))
+                            .cornerRadius(20)
+                            .padding()
+                    }
+                    
+                    NavigationLink(destination: PatientManagementView()) {
+                        Text("Patient Management")
+                            .frame(width: 300, height: 50)
+                            .background(Color("Bright Orange"))
+                            .cornerRadius(20)
+                            .padding()
+                    }
+           
+                   
+                    Button(action: {
+                        self.tabSelection = 3
+                    }) {
+                        Text("Account Management")
+                            .frame(width: 300, height: 50)
+                            .background(Color("Bright Orange"))
+                            .cornerRadius(20)
+                            .padding()
+                    }
                 
-                Button(action: {
-                    self.tabSelection = 2
-                }) {
-                    Text("Calendar")
-                        .frame(width: 300, height: 50)
-                        .background(Color("Bright Orange"))
-                        .cornerRadius(20)
-                        .padding()
-                }
                 
-                NavigationLink(destination: PatientManagementView()) {
-                    Text("Patient Management")
-                        .frame(width: 300, height: 50)
-                        .background(Color("Bright Orange"))
-                        .cornerRadius(20)
-                        .padding()
-                }
-       
-               
-                Button(action: {
-                    self.tabSelection = 3
-                }) {
-                    Text("Account Management")
-                        .frame(width: 300, height: 50)
-                        .background(Color("Bright Orange"))
-                        .cornerRadius(20)
-                        .padding()
-                }
-            
-            
-            
-            
                 
-                Spacer()
-                Spacer()
-                Spacer()
+                
+                    
+                    Spacer()
+                    Spacer()
+                    Spacer()
+                }
+                .foregroundColor(.black)
+                .edgesIgnoringSafeArea(.all)
             }
-            .foregroundColor(.black)
-            .edgesIgnoringSafeArea(.all)
         }
     }
     
