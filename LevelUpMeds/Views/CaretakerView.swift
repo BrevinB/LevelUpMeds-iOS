@@ -24,6 +24,14 @@ struct CaretakerView: View {
                 TabView(selection: $tabSelection) {
                     
                     
+                    DashboardView()
+                        .tabItem {
+                            Image(systemName: "person.text.rectangle")
+                            Text("Dashboard")
+                        }
+                        .tag(1)
+                    
+                    
                     CalendarView()
                         .tabItem {
                             Image(systemName: "calendar")
@@ -36,15 +44,19 @@ struct CaretakerView: View {
                             Image(systemName: "person.3.fill")
                             Text("Profiles")
                         }
+                        .tag(3)
                     
                     AccountView()
                         .tabItem {
                             Image(systemName: "person.crop.circle")
                             Text("Account")
                         }
-                        .tag(3)
+                        .tag(4)
                 }
-                .accentColor(Color("Bright Orange"))
+                .accentColor(.orange)
+                .onAppear() {
+                    UITabBar.appearance().backgroundColor = .darkGray
+                    }
                 
             }
             

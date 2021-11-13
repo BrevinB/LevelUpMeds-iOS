@@ -22,6 +22,7 @@
 		232E920C2733554B0020EC5B /* CalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 232E92042733554A0020EC5B /* CalendarView.swift */; };
 		232E920E2733556A0020EC5B /* BannerImmage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 232E920D2733556A0020EC5B /* BannerImmage.swift */; };
 		232E9212273357BF0020EC5B /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 232E9211273357BF0020EC5B /* SignUpView.swift */; };
+		2358F2CF27406C19008F4652 /* DashboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2358F2CE27406C19008F4652 /* DashboardView.swift */; };
 		237C587E273EE3C30071A010 /* BackgroundColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 237C587D273EE3C30071A010 /* BackgroundColor.swift */; };
 		237C5880273EE6D80071A010 /* NavigationLinkButtons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 237C587F273EE6D80071A010 /* NavigationLinkButtons.swift */; };
 		239E89B3273AFEA000C5C792 /* MedicationSignUpSelection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 239E89B2273AFEA000C5C792 /* MedicationSignUpSelection.swift */; };
@@ -67,6 +68,7 @@
 		232E92042733554A0020EC5B /* CalendarView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarView.swift; sourceTree = "<group>"; };
 		232E920D2733556A0020EC5B /* BannerImmage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BannerImmage.swift; sourceTree = "<group>"; };
 		232E9211273357BF0020EC5B /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
+		2358F2CE27406C19008F4652 /* DashboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardView.swift; sourceTree = "<group>"; };
 		237C587D273EE3C30071A010 /* BackgroundColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundColor.swift; sourceTree = "<group>"; };
 		237C587F273EE6D80071A010 /* NavigationLinkButtons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationLinkButtons.swift; sourceTree = "<group>"; };
 		239E89B2273AFEA000C5C792 /* MedicationSignUpSelection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedicationSignUpSelection.swift; sourceTree = "<group>"; };
@@ -171,6 +173,7 @@
 				232E92002733554A0020EC5B /* AccountView.swift */,
 				232E92012733554A0020EC5B /* PatientMenuView.swift */,
 				232E92022733554A0020EC5B /* CaretakerView.swift */,
+				2358F2CE27406C19008F4652 /* DashboardView.swift */,
 				232E92032733554A0020EC5B /* ContentView.swift */,
 				232E92042733554A0020EC5B /* CalendarView.swift */,
 				239E89B4273B00BD00C5C792 /* MedicationInfo.swift */,
@@ -337,6 +340,7 @@
 				237C5880273EE6D80071A010 /* NavigationLinkButtons.swift in Sources */,
 				232E9212273357BF0020EC5B /* SignUpView.swift in Sources */,
 				232E920A2733554B0020EC5B /* CaretakerView.swift in Sources */,
+				2358F2CF27406C19008F4652 /* DashboardView.swift in Sources */,
 				232E920C2733554B0020EC5B /* CalendarView.swift in Sources */,
 				232E92052733554A0020EC5B /* PatientManagementView.swift in Sources */,
 				239E89B5273B00BD00C5C792 /* MedicationInfo.swift in Sources */,
