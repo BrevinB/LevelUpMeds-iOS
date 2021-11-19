@@ -39,7 +39,7 @@ struct CaretakerView: View {
                         }
                         .tag(2)
                     
-                    PatientMenuView()
+                    UserProfilesView()
                         .tabItem {
                             Image(systemName: "person.3.fill")
                             Text("Profiles")
@@ -55,7 +55,7 @@ struct CaretakerView: View {
                 }
                 .accentColor(.orange)
                 .onAppear() {
-                    UITabBar.appearance().backgroundColor = .darkGray
+                    UITabBar.appearance().backgroundColor = .lightGray
                     }
                 
             }

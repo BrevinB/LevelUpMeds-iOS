@@ -14,7 +14,7 @@ struct PatientManagementView: View {
                 
 
             Group {
-                NavigationLink(destination: PatientMenuView()) {
+                NavigationLink(destination: UserProfilesView()) {
                     
                     Text("Kayla")
                     
@@ -22,17 +22,17 @@ struct PatientManagementView: View {
                 .padding()
                 
                 
-                NavigationLink(destination: PatientMenuView()) {
+                NavigationLink(destination: UserProfilesView()) {
                     Text("Abbie")
                 }
                 .padding()
                 
-                NavigationLink(destination: PatientMenuView()) {
+                NavigationLink(destination: UserProfilesView()) {
                     Text("John")
                 }
                 .padding()
                 
-                NavigationLink(destination: PatientMenuView()) {
+                NavigationLink(destination: UserProfilesView()) {
                     Text("Megan")
                 }
                 .padding()
