@@ -8,15 +8,17 @@
 
 /* Begin PBXBuildFile section */
 		230B4C972746D3EE00BDB4DC /* UserProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 230B4C962746D3EE00BDB4DC /* UserProfile.swift */; };
+		232277EA274822AC005E67B2 /* NavigationLinkNButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 232277E9274822AC005E67B2 /* NavigationLinkNButton.swift */; };
+		232277EC2748283C005E67B2 /* MedicationList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 232277EB2748283C005E67B2 /* MedicationList.swift */; };
+		232277EE274834FE005E67B2 /* AccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 232277ED274834FE005E67B2 /* AccountView.swift */; };
 		232E91D3273354BC0020EC5B /* LevelUpMedsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 232E91D2273354BC0020EC5B /* LevelUpMedsApp.swift */; };
 		232E91D7273354BE0020EC5B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 232E91D6273354BE0020EC5B /* Assets.xcassets */; };
 		232E91DA273354BE0020EC5B /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 232E91D9273354BE0020EC5B /* Preview Assets.xcassets */; };
 		232E91E4273354BE0020EC5B /* LevelUpMedsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 232E91E3273354BE0020EC5B /* LevelUpMedsTests.swift */; };
 		232E91EE273354BE0020EC5B /* LevelUpMedsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 232E91ED273354BE0020EC5B /* LevelUpMedsUITests.swift */; };
 		232E91F0273354BE0020EC5B /* LevelUpMedsUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 232E91EF273354BE0020EC5B /* LevelUpMedsUITestsLaunchTests.swift */; };
-		232E92052733554A0020EC5B /* PatientManagementView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 232E91FD2733554A0020EC5B /* PatientManagementView.swift */; };
 		232E92062733554A0020EC5B /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 232E91FE2733554A0020EC5B /* LoginView.swift */; };
-		232E92082733554A0020EC5B /* AccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 232E92002733554A0020EC5B /* AccountView.swift */; };
+		232E92082733554A0020EC5B /* IndividualProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 232E92002733554A0020EC5B /* IndividualProfileView.swift */; };
 		232E92092733554B0020EC5B /* UserProfilesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 232E92012733554A0020EC5B /* UserProfilesView.swift */; };
 		232E920A2733554B0020EC5B /* CaretakerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 232E92022733554A0020EC5B /* CaretakerView.swift */; };
 		232E920B2733554B0020EC5B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 232E92032733554A0020EC5B /* ContentView.swift */; };
@@ -52,6 +54,9 @@
 
 /* Begin PBXFileReference section */
 		230B4C962746D3EE00BDB4DC /* UserProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfile.swift; sourceTree = "<group>"; };
+		232277E9274822AC005E67B2 /* NavigationLinkNButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationLinkNButton.swift; sourceTree = "<group>"; };
+		232277EB2748283C005E67B2 /* MedicationList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedicationList.swift; sourceTree = "<group>"; };
+		232277ED274834FE005E67B2 /* AccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountView.swift; sourceTree = "<group>"; };
 		232E91CF273354BC0020EC5B /* LevelUpMeds.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LevelUpMeds.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		232E91D2273354BC0020EC5B /* LevelUpMedsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelUpMedsApp.swift; sourceTree = "<group>"; };
 		232E91D6273354BE0020EC5B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -61,9 +66,8 @@
 		232E91E9273354BE0020EC5B /* LevelUpMedsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LevelUpMedsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		232E91ED273354BE0020EC5B /* LevelUpMedsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelUpMedsUITests.swift; sourceTree = "<group>"; };
 		232E91EF273354BE0020EC5B /* LevelUpMedsUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelUpMedsUITestsLaunchTests.swift; sourceTree = "<group>"; };
-		232E91FD2733554A0020EC5B /* PatientManagementView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PatientManagementView.swift; sourceTree = "<group>"; };
 		232E91FE2733554A0020EC5B /* LoginView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
-		232E92002733554A0020EC5B /* AccountView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountView.swift; sourceTree = "<group>"; };
+		232E92002733554A0020EC5B /* IndividualProfileView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IndividualProfileView.swift; sourceTree = "<group>"; };
 		232E92012733554A0020EC5B /* UserProfilesView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserProfilesView.swift; sourceTree = "<group>"; };
 		232E92022733554A0020EC5B /* CaretakerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CaretakerView.swift; sourceTree = "<group>"; };
 		232E92032733554A0020EC5B /* ContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -138,6 +142,7 @@
 				237C587D273EE3C30071A010 /* BackgroundColor.swift */,
 				237C587F273EE6D80071A010 /* NavigationLinkButtons.swift */,
 				230B4C962746D3EE00BDB4DC /* UserProfile.swift */,
+				232277E9274822AC005E67B2 /* NavigationLinkNButton.swift */,
 			);
 			path = LevelUpMeds;
 			sourceTree = "<group>";
@@ -171,9 +176,8 @@
 			isa = PBXGroup;
 			children = (
 				239E89B1273AFDAD00C5C792 /* Sign Up */,
-				232E91FD2733554A0020EC5B /* PatientManagementView.swift */,
 				232E91FE2733554A0020EC5B /* LoginView.swift */,
-				232E92002733554A0020EC5B /* AccountView.swift */,
+				232E92002733554A0020EC5B /* IndividualProfileView.swift */,
 				232E92012733554A0020EC5B /* UserProfilesView.swift */,
 				232E92022733554A0020EC5B /* CaretakerView.swift */,
 				2358F2CE27406C19008F4652 /* DashboardView.swift */,
@@ -181,6 +185,8 @@
 				232E92042733554A0020EC5B /* CalendarView.swift */,
 				239E89B4273B00BD00C5C792 /* MedicationInfo.swift */,
 				239E89B6273B426E00C5C792 /* NewUserMedication.swift */,
+				232277EB2748283C005E67B2 /* MedicationList.swift */,
+				232277ED274834FE005E67B2 /* AccountView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -337,6 +343,7 @@
 				232E92062733554A0020EC5B /* LoginView.swift in Sources */,
 				232E920E2733556A0020EC5B /* BannerImmage.swift in Sources */,
 				239E89B7273B426E00C5C792 /* NewUserMedication.swift in Sources */,
+				232277EE274834FE005E67B2 /* AccountView.swift in Sources */,
 				239E89B3273AFEA000C5C792 /* MedicationSignUpSelection.swift in Sources */,
 				232E920B2733554B0020EC5B /* ContentView.swift in Sources */,
 				232E91D3273354BC0020EC5B /* LevelUpMedsApp.swift in Sources */,
@@ -346,9 +353,10 @@
 				232E920A2733554B0020EC5B /* CaretakerView.swift in Sources */,
 				2358F2CF27406C19008F4652 /* DashboardView.swift in Sources */,
 				232E920C2733554B0020EC5B /* CalendarView.swift in Sources */,
-				232E92052733554A0020EC5B /* PatientManagementView.swift in Sources */,
 				239E89B5273B00BD00C5C792 /* MedicationInfo.swift in Sources */,
-				232E92082733554A0020EC5B /* AccountView.swift in Sources */,
+				232277EA274822AC005E67B2 /* NavigationLinkNButton.swift in Sources */,
+				232277EC2748283C005E67B2 /* MedicationList.swift in Sources */,
+				232E92082733554A0020EC5B /* IndividualProfileView.swift in Sources */,
 				232E92092733554B0020EC5B /* UserProfilesView.swift in Sources */,
 				237C587E273EE3C30071A010 /* BackgroundColor.swift in Sources */,
 			);

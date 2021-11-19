@@ -17,6 +17,7 @@ struct MedicationInfo: View {
     @State private var friday = false
     @State private var saturday = false
     @State private var sunday = false
+    @State private var addTime = false
     @State private var date = Date()
     
     var body: some View {
@@ -54,14 +55,44 @@ struct MedicationInfo: View {
                        
                     
                     Text("Times of Day")
-                    DatePicker("Please enter a time", selection: $date, displayedComponents: .hourAndMinute )
-                        .labelsHidden()
+                    displayDate()
+                
                     
                     Button(action: {
-                        print("ADD TIME")
+                        
+                        print("ADD")
+                        
                     }) {
                         Text("Add Time")
                     }
+                    
+                    Button(action: {
+                        print("Reminders")
+                    }) {
+                       Text("Reminders")
+                    }
+                    .padding()
+                    
+                    
+                    VStack(alignment: .leading) {
+                        Text("ADDITIONAL NOTES")
+                            .font(.title2)
+                        
+                        TextField ("Aditional Notes", text: $medication)
+                            .frame(height: 60)
+                            .padding([.top,.bottom], 2)
+                            .padding(.leading, 5)
+                            .background(Color.white, alignment: .center)
+                            .cornerRadius(10)
+                            .frame(width: 300)
+                            .padding([.bottom], 50)
+                    }
+                    
+                    
+                    
+                    NavigationLinkNButton(view: AnyView(MedicationList()), text: "Next", imageName: "arrow.right")
+                    
+                    
                 }
             }
             
@@ -111,14 +142,14 @@ struct daySelected: View {
     }
 }
 
-//struct displayDate: View {
-//    
-//    @Binding var date = Date()
-//    
-//    var body: some View {
-//        DatePicker("Please enter a time", selection: date, displayedComponents: .hourAndMinute )
-//            .labelsHidden()
-//    }
-//}
+struct displayDate: View {
+    
+    @State private var date = Date()
+
+    var body: some View {
+        DatePicker("Please enter a time", selection: $date, displayedComponents: .hourAndMinute )
+            .labelsHidden()
+    }
+}
 
 

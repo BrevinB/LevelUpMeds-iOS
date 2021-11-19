@@ -16,27 +16,27 @@ struct UserProfilesView: View {
                 VStack {
                  
                     List {
-                        NavigationLink(destination: AccountView()) {
+                        NavigationLink(destination: IndividualProfileView()) {
                             UserProfile(name: "Alex",
                                         imageName: "a.circle.fill")
                         }
                         
-                        NavigationLink(destination: AccountView()) {
+                        NavigationLink(destination: IndividualProfileView()) {
                             UserProfile(name: "John",
                                         imageName: "j.circle.fill")
                         }
                         
-                        NavigationLink(destination: AccountView()) {
+                        NavigationLink(destination: IndividualProfileView()) {
                             UserProfile(name: "Stacey",
                                         imageName: "s.circle.fill")
                         }
                         
-                        NavigationLink(destination: AccountView()) {
+                        NavigationLink(destination: IndividualProfileView()) {
                             UserProfile(name: "Megan",
                                         imageName: "m.circle.fill")
                         }
                         
-                        NavigationLink(destination: AccountView()) {
+                        NavigationLink(destination: IndividualProfileView()) {
                             UserProfile(name: "Kelsey",
                                         imageName: "k.circle.fill")
                         }

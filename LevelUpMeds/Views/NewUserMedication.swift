@@ -46,26 +46,7 @@ struct NewUserMedication: View {
                     Spacer()
                     Spacer()
                     
-                    NavigationLink(destination: MedicationInfo()) {
-                        HStack {
-                            Spacer()
-                            ZStack(alignment: .trailing) {
-                                Text("Next")
-                                    .padding(10)
-                                    .frame(width: 100, alignment: .leading)
-                                    .background(Color("Bright Orange"))
-                                    .cornerRadius(20)
-                                    .foregroundColor(.black)
-                                   
-                                    
-                                Image(systemName: "arrow.right")
-                                    .font(.system(size: 25))
-                                    
-                            }
-                            .font(.title)
-                        }
-                        
-                    }
+                    NavigationLinkNButton(view: AnyView(MedicationInfo()), text: "Next", imageName: "arrow.right")
                    
                     
                 }
