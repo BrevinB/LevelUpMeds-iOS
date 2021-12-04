@@ -13,7 +13,7 @@ struct IndividualProfileView: View {
         NavigationView {
             ZStack {
                 BackgroundColor(color: "Creamy Blue")
-                
+                   
                 ScrollView {
                     
                     VStack() {
@@ -22,8 +22,20 @@ struct IndividualProfileView: View {
                             Text("Medicaiton")
                                 .font(.title)
                                 .padding([.leading], 20)
+                            
+                            
+                            
                             MedicationCardView()
                             MedicationCardView()
+                        }
+                        
+                        
+                        VStack(alignment: .leading) {
+                            Text("Schedule")
+                                .font(.title)
+                                .padding([.leading], 20)
+                            ScheduleCardView()
+            
                         }
                         
                         VStack(alignment: .leading) {
@@ -31,14 +43,6 @@ struct IndividualProfileView: View {
                                 .font(.title)
                                 .padding([.leading], 20)
                             NotesCardView()
-            
-                        }
-                        
-                        VStack(alignment: .leading) {
-                            Text("Schedule")
-                                .font(.title)
-                                .padding([.leading], 20)
-                            ScheduleCardView()
             
                         }
                        
@@ -51,8 +55,9 @@ struct IndividualProfileView: View {
                 
             }
         }
-        .navigationTitle("Alex")
-        .navigationBarTitleDisplayMode(.automatic)
+         .navigationTitle("Alex")
+         .ignoresSafeArea(edges: .all)
+         .navigationBarTitleDisplayMode(.inline)
        
     
     }
@@ -72,7 +77,7 @@ struct MedicationCardView: View {
         ZStack {
             RoundedRectangle(cornerRadius: 0)
                 .fill(.white)
-                .frame(width: 350, height: 100)
+                .frame(width: 350, height: 75)
                 .shadow(color: .gray, radius: 25, x: -10, y: 10)
             
             HStack {
@@ -85,14 +90,12 @@ struct MedicationCardView: View {
                     Text("Name:")
                     Text("Dosage:")
                     Text("Time:")
-                    Text("Recurrence:")
                 }
                 
                 VStack {
                     Text("Medication Name")
                     Text("1 pill")
                     Text("12:00 PM")
-                    Text("Dailey")
                 }
                 
             }
@@ -109,7 +112,7 @@ struct NotesCardView: View {
         ZStack {
             RoundedRectangle(cornerRadius: 0)
                 .fill(.white)
-                .frame(width: 350, height: 100)
+                .frame(width: 350, height: 75)
                 .shadow(color: .gray, radius: 25, x: -10, y: 10)
             
             HStack() {
@@ -141,7 +144,7 @@ struct ScheduleCardView: View {
         ZStack {
             RoundedRectangle(cornerRadius: 0)
                 .fill(.white)
-                .frame(width: 350, height: 100)
+                .frame(width: 350, height: 75)
                 .shadow(color: .gray, radius: 25, x: -10, y: 10)
             
             HStack() {

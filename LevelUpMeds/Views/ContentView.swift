@@ -51,7 +51,7 @@ struct ContentView: View {
                     
                     
                 }
-                    .font(.title)
+                .font(.title)
                 .edgesIgnoringSafeArea(.all)
             }
                 

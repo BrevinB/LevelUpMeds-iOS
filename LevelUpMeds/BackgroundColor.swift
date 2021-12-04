@@ -13,6 +13,6 @@ struct BackgroundColor : View {
     var body: some View {
         
         Color(color)
-            .edgesIgnoringSafeArea(.all)
+            .ignoresSafeArea()
     }
 }

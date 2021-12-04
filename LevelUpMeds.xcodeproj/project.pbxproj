@@ -25,6 +25,7 @@
 		232E920C2733554B0020EC5B /* CalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 232E92042733554A0020EC5B /* CalendarView.swift */; };
 		232E920E2733556A0020EC5B /* BannerImmage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 232E920D2733556A0020EC5B /* BannerImmage.swift */; };
 		232E9212273357BF0020EC5B /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 232E9211273357BF0020EC5B /* SignUpView.swift */; };
+		2332247A2757EA7B00413A5E /* MedicationEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 233224792757EA7B00413A5E /* MedicationEditView.swift */; };
 		2358F2CF27406C19008F4652 /* DashboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2358F2CE27406C19008F4652 /* DashboardView.swift */; };
 		237C587E273EE3C30071A010 /* BackgroundColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 237C587D273EE3C30071A010 /* BackgroundColor.swift */; };
 		237C5880273EE6D80071A010 /* NavigationLinkButtons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 237C587F273EE6D80071A010 /* NavigationLinkButtons.swift */; };
@@ -74,6 +75,7 @@
 		232E92042733554A0020EC5B /* CalendarView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarView.swift; sourceTree = "<group>"; };
 		232E920D2733556A0020EC5B /* BannerImmage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BannerImmage.swift; sourceTree = "<group>"; };
 		232E9211273357BF0020EC5B /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
+		233224792757EA7B00413A5E /* MedicationEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedicationEditView.swift; sourceTree = "<group>"; };
 		2358F2CE27406C19008F4652 /* DashboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardView.swift; sourceTree = "<group>"; };
 		237C587D273EE3C30071A010 /* BackgroundColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundColor.swift; sourceTree = "<group>"; };
 		237C587F273EE6D80071A010 /* NavigationLinkButtons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationLinkButtons.swift; sourceTree = "<group>"; };
@@ -187,6 +189,7 @@
 				239E89B6273B426E00C5C792 /* NewUserMedication.swift */,
 				232277EB2748283C005E67B2 /* MedicationList.swift */,
 				232277ED274834FE005E67B2 /* AccountView.swift */,
+				233224792757EA7B00413A5E /* MedicationEditView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -341,6 +344,7 @@
 			files = (
 				239E89BB273B48A400C5C792 /* SwitchViews.swift in Sources */,
 				232E92062733554A0020EC5B /* LoginView.swift in Sources */,
+				2332247A2757EA7B00413A5E /* MedicationEditView.swift in Sources */,
 				232E920E2733556A0020EC5B /* BannerImmage.swift in Sources */,
 				239E89B7273B426E00C5C792 /* NewUserMedication.swift in Sources */,
 				232277EE274834FE005E67B2 /* AccountView.swift in Sources */,
