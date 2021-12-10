@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct IndividualProfileView: View {
+    @State private var isNewNotePresented: Bool = false
     var body: some View {
         
         NavigationView {
@@ -19,22 +20,57 @@ struct IndividualProfileView: View {
                     VStack() {
                 
                         VStack(alignment: .leading) {
-                            Text("Medicaiton")
+                            Text("Medication")
                                 .font(.title)
                                 .padding([.leading], 20)
                             
                             
                             
-                            MedicationCardView()
-                            MedicationCardView()
+                            NavigationLink(destination: MedicationInfo(), label: {
+                                MedicationCardView(time: "3:30 PM", medication: "Benadryl")
+                            })
+                                
+                            
+                            NavigationLink(destination: MedicationList(), label: {
+                                MedicationCardView(time: "5:30 PM", medication: "Creatine")
+                            })
+                            
+                            HStack {
+                                Spacer()
+                                NavigationLink(destination: MedicationList(), label: {
+                                    Text("See All Medication")
+                                        .frame(width: 150, height: 40)
+                                        .background(Color("Bright Orange"))
+                                        .foregroundColor(.black)
+                                        .cornerRadius(10)
+                                })
+                                Spacer()
+                            }
+                         
+                               
                         }
                         
                         
                         VStack(alignment: .leading) {
-                            Text("Schedule")
+                            Text("Appointements")
                                 .font(.title)
                                 .padding([.leading], 20)
-                            ScheduleCardView()
+                            
+                            NavigationLink(destination: AppointementDetailView(), label: {
+                                AppointementCardView()
+                            })
+                           
+                            HStack {
+                                Spacer()
+                                NavigationLink(destination: AppointementListView(), label: {
+                                    Text("See All Appointements")
+                                        .frame(width: 200, height: 40)
+                                        .background(Color("Bright Orange"))
+                                        .foregroundColor(.black)
+                                        .cornerRadius(10)
+                                })
+                                Spacer()
+                            }
             
                         }
                         
@@ -42,8 +78,24 @@ struct IndividualProfileView: View {
                             Text("Notes")
                                 .font(.title)
                                 .padding([.leading], 20)
-                            NotesCardView()
-            
+                            
+                            NavigationLink(destination: NotesEditView(), label: {
+                                NotesCardView()
+                            })
+                           
+                            HStack {
+                                Spacer()
+                                
+                                NavigationLink(destination: NotesListView(), label: {
+                                    Text("See All Notes")
+                                        .frame(width: 200, height: 40)
+                                        .background(Color("Bright Orange"))
+                                        .foregroundColor(.black)
+                                        .cornerRadius(10)
+                                })
+                                
+                                Spacer()
+                            }
                         }
                        
                         
@@ -53,11 +105,14 @@ struct IndividualProfileView: View {
                     }
                 }
                 
+                
             }
         }
+         .foregroundColor(.black)
          .navigationTitle("Alex")
          .ignoresSafeArea(edges: .all)
          .navigationBarTitleDisplayMode(.inline)
+         .navigationBarHidden(true)
        
     
     }
@@ -71,33 +126,38 @@ struct IndividualProfileView_Preview: PreviewProvider {
 
 
 struct MedicationCardView: View {
-
+    var time: String
+    var medication: String
     var body: some View {
         
         ZStack {
             RoundedRectangle(cornerRadius: 0)
                 .fill(.white)
-                .frame(width: 350, height: 75)
+                .frame(width: 350, height: 80)
                 .shadow(color: .gray, radius: 25, x: -10, y: 10)
             
-            HStack {
-                VStack {
-                    Image(systemName: "pills.fill")
-                        .padding([.trailing], 40)
+            VStack {
+                nameTagView(symbolName: "a.circle.fill",
+                            name: "Alex",
+                            time: time)
+                HStack {
+                    VStack {
+                        Image(systemName: "pills.fill")
+                            .padding([.trailing], 40)
+                    }
+                    
+                    VStack {
+                        Text("Name:")
+                        Text("Dosage:")
+                    }
+                    
+                    VStack {
+                        Text(medication)
+                        Text("1 pill")
+                        
+                    }
+                    
                 }
-                
-                VStack {
-                    Text("Name:")
-                    Text("Dosage:")
-                    Text("Time:")
-                }
-                
-                VStack {
-                    Text("Medication Name")
-                    Text("1 pill")
-                    Text("12:00 PM")
-                }
-                
             }
             
         }
@@ -106,29 +166,36 @@ struct MedicationCardView: View {
     }
 
 struct NotesCardView: View {
-
+    
     var body: some View {
         
         ZStack {
             RoundedRectangle(cornerRadius: 0)
                 .fill(.white)
-                .frame(width: 350, height: 75)
+                .frame(width: 350, height: 100)
                 .shadow(color: .gray, radius: 25, x: -10, y: 10)
             
-            HStack() {
-                VStack {
-                    Image(systemName: "note.text")
-                        .padding()
-                }
-                .padding()
+            VStack {
                 
-                VStack(alignment: .leading) {
-                    Text("11/12/2021")
-                        .font(.title3)
-                    Text("Note about patient detailing")
-                }
+                nameTagView(symbolName: "a.circle.fill",
+                            name: "Alex",
+                            time: "6:30 PM")
                 
-                Spacer()
+                HStack() {
+                    VStack {
+                        Image(systemName: "note.text")
+                            .padding()
+                    }
+                    .padding()
+                    
+                    VStack(alignment: .leading) {
+                        Text("12/09/2021")
+                            .font(.title3)
+                        Text("Alex's doctor's appointement was rescheduled......")
+                    }
+                    
+                    Spacer()
+                }
             }
             
         }
@@ -137,31 +204,38 @@ struct NotesCardView: View {
     }
 
 
-struct ScheduleCardView: View {
+struct AppointementCardView: View {
 
     var body: some View {
         
         ZStack {
             RoundedRectangle(cornerRadius: 0)
                 .fill(.white)
-                .frame(width: 350, height: 75)
+                .frame(width: 350, height: 100)
                 .shadow(color: .gray, radius: 25, x: -10, y: 10)
             
-            HStack() {
-                VStack {
-                    Image(systemName: "calendar.badge.clock")
-                        .padding()
-                }
-                .padding()
+            VStack {
                 
-                VStack(alignment: .leading) {
-                    Text("11/12/2021")
-                        .font(.title3)
-                    Text("Doctors Appointement")
-                    Text("Doctor's Name")
-                }
+                nameTagView(symbolName: "a.circle.fill",
+                            name: "Alex",
+                            time: "6:30 PM")
                 
-                Spacer()
+                HStack() {
+                    VStack {
+                        Image(systemName: "calendar.badge.clock")
+                            .padding()
+                    }
+                    .padding()
+                    
+                    VStack(alignment: .leading) {
+                        Text("12/10/2021")
+                            .font(.title3)
+                        Text("Doctors Appointement")
+                        Text("Doctor's Name")
+                    }
+                    
+                    Spacer()
+                }
             }
             
         }

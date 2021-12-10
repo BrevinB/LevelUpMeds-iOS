@@ -15,7 +15,13 @@ struct MedicationList: View {
                 
                 VStack {
                     
-                    MedicationListCardView()
+                    MedicationListCardView(medication: "Benadryl")
+                    
+                    MedicationListCardView(medication: "Creatine")
+                    
+                    MedicationListCardView(medication: "Effexor")
+                    
+                    MedicationListCardView(medication: "Vitamin D")
                     Spacer()
                     
                     
@@ -30,12 +36,15 @@ struct MedicationList: View {
                     })
                     
                     
+                    
+                    
                 }
                 
                 
                 
             }
         }
+       
     }
 }
 
@@ -46,17 +55,18 @@ struct MedicationList_Previews: PreviewProvider {
 }
 
 struct MedicationListCardView: View {
+    var medication: String
     var body: some View {
         
        
         ZStack {
             HStack {
-                MedicationCardView()
+                MedicationCardView(time: "", medication: medication)
                 
                 
             }
             
-            HStack() {
+            HStack {
                 Spacer()
                 NavigationLink(destination: MedicationEditView(), label: {
                     Text("Edit")
@@ -65,7 +75,8 @@ struct MedicationListCardView: View {
                     .background(Color("Bright Orange"))
                     .foregroundColor(.black)
                     .cornerRadius(10)
-                    .padding(.trailing, 20)
+                    .padding(.trailing, 30)
+                    .padding(.top, 50)
             }
         }
        
