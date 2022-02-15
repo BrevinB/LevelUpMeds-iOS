@@ -2,14 +2,29 @@
 //  AccountView.swift
 //  LevelUpMeds
 //
-//  Created by Brevin Blalock on 10/27/21.
+//  Created by Brevin Blalock on 11/19/21.
 //
 
 import SwiftUI
+import FirebaseAuth
 
 struct AccountView: View {
+    
+    @EnvironmentObject var sessionService: SessionServiceImpl
+    
+    let email = Auth.auth().currentUser?.email ?? "email@gmail.com"
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        
+        VStack {
+            
+            Text(email)
+            
+            ButtonView(title: "Logout") {
+                sessionService.logout()
+            }
+            
+        }
     }
 }
 

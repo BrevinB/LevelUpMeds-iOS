@@ -6,8 +6,10 @@
 //
 
 import SwiftUI
+import Firebase
 
 struct ContentView: View {
+
     var body: some View {
         
         NavigationView() {
@@ -51,9 +53,10 @@ struct ContentView: View {
                     
                     
                 }
-                    .font(.title)
+                .font(.title)
                 .edgesIgnoringSafeArea(.all)
             }
+            
                 
             
             }

@@ -59,7 +59,9 @@ struct MedicationSignUpSelection: View {
                     }
                     Spacer()
                     Spacer()
-                    Button(action: skipMedication) {
+                    Button(action: {
+                    //TODO: Add action
+                    }) {
                         Text("Skip Medication Setup")
                             .padding()
                             .frame(width: 250, height: 30)
@@ -84,9 +86,3 @@ struct MedicationSignUpSelection_Previews: PreviewProvider {
     }
 }
 
-func skipMedication() {
-    if let window = UIApplication.shared.windows.first {
-        window.rootViewController = UIHostingController(rootView: CaretakerView())
-        window.makeKeyAndVisible()
-    }
-}
