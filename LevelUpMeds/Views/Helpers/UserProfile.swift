@@ -14,7 +14,7 @@ struct UserProfile: View {
     
     var body: some View {
         HStack {
-          
+            
             Image(systemName: imageName)
                 .resizable()
                 .frame(width: 50, height: 50)

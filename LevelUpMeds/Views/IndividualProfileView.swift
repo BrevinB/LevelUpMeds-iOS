@@ -8,94 +8,177 @@
 import SwiftUI
 
 struct IndividualProfileView: View {
+    
+    @ObservedObject private var appointmentVM = appointmentViewModel()
+    @ObservedObject private var medicationVM = medicationViewModel()
+    
     @State private var isNewNotePresented: Bool = false
+    @State private var isMedicationsEmpty: Bool = false
+    @State private var isAppointmentEmpty: Bool = false
+    @State var profileID: String
+    @State var name: String
+    
+    
+    private let dateFormatter = DateFormatter()
+    
+    init(profileID: String, name: String) {
+        self.profileID = profileID
+        self.name = name
+        medicationVM.profileID = self.profileID
+        appointmentVM.profileID = self.profileID
+    }
+    
+    
     var body: some View {
         
         NavigationView {
-            ZStack {
-                BackgroundColor(color: "Creamy Blue")
                    
                 ScrollView {
                     
                     VStack() {
                 
+                        //Display Medications
                         VStack(alignment: .leading) {
                             Text("Medication")
                                 .font(.title)
                                 .padding([.leading], 20)
                             
                             
-                            
-                            NavigationLink(destination: MedicationInfo(), label: {
-                                MedicationCardView(time: "3:30 PM", medication: "Benadryl")
-                            })
-                                
-                            
-                            NavigationLink(destination: MedicationList(), label: {
-                                MedicationCardView(time: "5:30 PM", medication: "Creatine")
-                            })
-                            
-                            HStack {
-                                Spacer()
-                                NavigationLink(destination: MedicationList(), label: {
-                                    Text("See All Medication")
-                                        .frame(width: 150, height: 40)
-                                        .background(Color("Bright Orange"))
-                                        .foregroundColor(.black)
-                                        .cornerRadius(10)
-                                })
-                                Spacer()
+                            VStack(spacing: 16) {
+                                if medicationVM.filteredMedications.isEmpty {
+                                    Text("No Medications")
+                                        .padding()
+                                    
+                                    ButtonView(title: "Add Medications") {
+                                        isMedicationsEmpty.toggle()
+                                    }
+                                    .frame(width: 350, height: 50)
+                                    .sheet(isPresented: $isMedicationsEmpty, onDismiss: {
+                                        medicationVM.fetchData()
+                                    }, content: {
+                                        MedicationEditView(profileID: profileID)
+                                    })
+                                } else {
+                                    
+                                    ForEach(medicationVM.filteredMedications) { med in
+                                        if medicationVM.filteredMedications.count > 2 {
+                                            if med.time < Date.now.addingTimeInterval(5000) {
+                                                MedicationCardView(time: dateFormatter.string(from: med.time),
+                                                                   medication: med.name,
+                                                                   name: name)
+                                            } else {
+                                                MedicationCardView(time: dateFormatter.string(from: med.time),
+                                                                   medication: med.name,
+                                                                   name: name)
+                                            }
+                                        } else {
+                                            
+                                            MedicationCardView(time: dateFormatter.string(from: med.time),
+                                                               medication: med.name,
+                                                               name: name)
+                                            
+                                        }
+                                    }
+                                    
+                                    
+                                    HStack {
+                                        Spacer()
+                                        NavigationLink(destination: MedicationList(profileID: profileID), label: {
+                                            Text("See All Medication")
+                                                .frame(width: 150, height: 40)
+                                                .background(Color("Bright Orange"))
+                                                .foregroundColor(.black)
+                                                .cornerRadius(10)
+                                        })
+                                        Spacer()
+                                    }
+
+                                }
                             }
-                         
-                               
+                            
                         }
                         
                         
+                        //Show appointments
                         VStack(alignment: .leading) {
                             Text("Appointements")
                                 .font(.title)
                                 .padding([.leading], 20)
                             
-                            NavigationLink(destination: AppointementDetailView(), label: {
-                                AppointementCardView()
-                            })
                            
-                            HStack {
-                                Spacer()
-                                NavigationLink(destination: AppointementListView(), label: {
-                                    Text("See All Appointements")
-                                        .frame(width: 200, height: 40)
-                                        .background(Color("Bright Orange"))
-                                        .foregroundColor(.black)
-                                        .cornerRadius(10)
+                            //IF no appointments show button to add apointments
+                            if appointmentVM.filteredAppointments.isEmpty {
+                                Text("No Appointments")
+                                    .padding()
+                                ButtonView(title: "Add Appointment") {
+                                    isAppointmentEmpty.toggle()
+                                }
+                                .frame(width: 350, height: 50)
+                                .sheet(isPresented: $isAppointmentEmpty, onDismiss: {
+                                    appointmentVM.fetchData()
+                                }, content: {
+                                    AddAppointmentView(profileID: profileID)
                                 })
-                                Spacer()
+                            } else {
+                                
+                                ForEach(appointmentVM.filteredAppointments) { app in
+                                    NavigationLink(destination: AppointmentDetailView(name: app.name, address: app.address, time: dateFormatter.string(from: app.appointmentDate)), label: {
+                                        AppointmentDashCardView(name: app.name, address: app.address, time: dateFormatter.string(from: app.appointmentDate))
+                                    })
+                                }
+                                
+                                    
+                               
+                                
+                                HStack {
+                                    Spacer()
+                                    NavigationLink(destination: AppointementListView(profileID: profileID), label: {
+                                        Text("See All Appointements")
+                                            .frame(width: 200, height: 40)
+                                            .background(Color("Bright Orange"))
+                                            .foregroundColor(.black)
+                                            .cornerRadius(10)
+                                    })
+                                    Spacer()
+                                }
                             }
+                           
             
                         }
                         
+                        //Show Notes
                         VStack(alignment: .leading) {
                             Text("Notes")
                                 .font(.title)
                                 .padding([.leading], 20)
                             
-                            NavigationLink(destination: NotesEditView(), label: {
-                                NotesCardView()
-                            })
+//                            NavigationLink(destination: NotesEditView(), label: {
+//                                NotesCardView()
+//                            })
                            
-                            HStack {
-                                Spacer()
-                                
-                                NavigationLink(destination: NotesListView(), label: {
-                                    Text("See All Notes")
-                                        .frame(width: 200, height: 40)
-                                        .background(Color("Bright Orange"))
-                                        .foregroundColor(.black)
-                                        .cornerRadius(10)
-                                })
-                                
-                                Spacer()
+                            Text("Add Notes")
+                                .padding()
+                            
+                            ButtonView(title: "Add Notes") {
+                                //TODO: Add notes navigation
+                           
                             }
+                            .frame(width: 350, height: 50)
+                            
+                            
+//                            HStack {
+//                                Spacer()
+//
+//                                NavigationLink(destination: NotesListView(), label: {
+//                                    Text("See All Notes")
+//                                        .frame(width: 200, height: 40)
+//                                        .background(Color("Bright Orange"))
+//                                        .foregroundColor(.black)
+//                                        .cornerRadius(10)
+//                                })
+//
+//                                Spacer()
+//                            }
                         }
                        
                         
@@ -104,9 +187,6 @@ struct IndividualProfileView: View {
                             
                     }
                 }
-                
-                
-            }
         }
          .foregroundColor(.black)
          .navigationTitle("Alex")
@@ -120,7 +200,7 @@ struct IndividualProfileView: View {
 
 struct IndividualProfileView_Preview: PreviewProvider {
     static var previews: some View {
-        IndividualProfileView()
+        IndividualProfileView(profileID: "", name: "")
     }
 }
 
@@ -128,6 +208,8 @@ struct IndividualProfileView_Preview: PreviewProvider {
 struct MedicationCardView: View {
     var time: String
     var medication: String
+    var name: String =  "Name"
+
     var body: some View {
         
         ZStack {
@@ -137,8 +219,9 @@ struct MedicationCardView: View {
                 .shadow(color: .gray, radius: 25, x: -10, y: 10)
             
             VStack {
-                nameTagView(symbolName: "a.circle.fill",
-                            name: "Alex",
+                let initial = Array(name)[0]
+                nameTagView(symbolName: "\(initial.lowercased()).circle.fill",
+                            name: name,
                             time: time)
                 HStack {
                     VStack {

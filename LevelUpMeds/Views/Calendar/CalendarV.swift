@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct DashboardView: View {
+struct CalendarV: View {
     
     @Environment(\.colorScheme) var colorScheme
     @ObservedObject private var appViewModel = appointmentViewModel()
@@ -15,18 +15,26 @@ struct DashboardView: View {
     @ObservedObject var uerViewModel = profileViewModel()
     @ObservedObject private var medicationModel = medicationViewModel()
     @Namespace var animation
+    private let dateFormatter = DateFormatter()
     var a = "a"
     
     init() {
-        //appViewModel.fetchData()
+        appViewModel.profileList = uerViewModel.filteredProfiles
+        appViewModel.date = calendarModel.currentDay
+        dateFormatter.dateFormat = "hh:mm a"
         calendarModel.filterTodayAppointments()
         medicationModel.fetchData()
+        appViewModel.fetchData()
     }
     
  
     
     var body: some View {
        
+        
+        ZStack {
+            
+            //BackgroundColor(color: "Creamy Blue")
             
             ScrollView(.vertical, showsIndicators: false) {
                 
@@ -79,6 +87,7 @@ struct DashboardView: View {
                                         //Updating Current Day
                                         withAnimation {
                                             calendarModel.currentDay = day
+                                            appViewModel.date = day
                                         }
                                     }
                                     
@@ -89,15 +98,18 @@ struct DashboardView: View {
                         }
                         
                         VStack {
+                            
+                            Text("Medication")
+                                .font(.title.bold())
+                                .offset(x: -100)
+                            //MedicationView()
+                            
                             Text("Appointments")
                                 .font(.title.bold())
                                 .offset(x: -80)
                             AppointmentsView()
                             
-                            Text("Medication")
-                                .font(.title.bold())
-                                .offset(x: -100)
-                            MedicationView()
+                      
                         }
                        
                     
@@ -107,6 +119,7 @@ struct DashboardView: View {
                     }
                 }
             }
+        }
     }
     
     //Appointments View
@@ -116,7 +129,7 @@ struct DashboardView: View {
 
             
             //x`if let appointment = appViewModel.appointment {
-            if let appointment = calendarModel.filteredAppointments {
+            if let appointment = appViewModel.allProfilesForAccount {
                 
                 if appointment.isEmpty {
                     Text("No appointments found")
@@ -125,21 +138,11 @@ struct DashboardView: View {
                         .offset(y: 0)
                 } else {
                     
+                    Text("NOT EMPTY")
+                    
                     ForEach(appointment) { appointment in
-                        if calendarModel.isCurrentHour(date: appointment.appointmentDate) {
-                            CardView(appointment: appointment)
-                        } else {
-                            Text("No Updcoming Appointments")
-                                .font(.system(size: 16))
-                                .fontWeight(.light)
-                                .offset(y: 0)
-                        }
-                        
+                        CardView(appointment: appointment)
                     }
-                    
-                   
-                    
-                    
                 }
 
             } else {
@@ -306,7 +309,7 @@ struct DashboardView: View {
                     }
                     .hLeading()
                     
-                    Text("8:00 PM")
+                    Text(dateFormatter.string(from: medication.time))
                 }
             }
             .foregroundColor(calendarModel.isCurrentHour(date: Date.now) ? .white : .black)
@@ -343,10 +346,6 @@ struct DashboardView: View {
             }
             .hLeading()
             
-            
-            Text("Dashboard")
-                .font(.largeTitle.bold())
-            
 //            Button {
 //
 //            } label: {
@@ -364,8 +363,40 @@ struct DashboardView: View {
     
 }
 
-struct DashboardView_Preview: PreviewProvider {
+struct CalendarV_Previews: PreviewProvider {
     static var previews: some View {
         CalendarV()
+    }
+}
+
+//UI Design Helper functions
+extension View {
+    
+    func hLeading() -> some View {
+        self
+            .frame(maxWidth: .infinity, alignment: .leading)
+    }
+    
+    func hTrailing() -> some View {
+        self
+            .frame(maxWidth: .infinity, alignment: .trailing)
+    }
+    
+    func hCenter() -> some View {
+        self
+            .frame(maxWidth: .infinity, alignment: .center)
+    }
+    
+    // MARK: Safe Area
+    func getSafeArea()->UIEdgeInsets{
+        guard let screen = UIApplication.shared.connectedScenes.first as? UIWindowScene else{
+            return .zero
+        }
+        
+        guard let safeArea = screen.windows.first?.safeAreaInsets else{
+            return .zero
+        }
+        
+        return safeArea
     }
 }

@@ -16,7 +16,7 @@ struct MedicationInfo: View {
         
     
             ZStack {
-                BackgroundColor(color: "Creamy Blue")
+               //BackgroundColor(color: "Creamy Blue")
                 Spacer()
 
                 VStack {

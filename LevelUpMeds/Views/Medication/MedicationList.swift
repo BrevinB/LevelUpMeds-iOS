@@ -8,49 +8,55 @@
 import SwiftUI
 
 struct MedicationList: View {
+    
+    @ObservedObject private var medicationVM = medicationViewModel()
+    @State var profileID: String = ""
+    private let dateFormatter = DateFormatter()
+    @State private var addMedications: Bool = false
+    
+    init(profileID: String) {
+        self.profileID = profileID
+        self.medicationVM.profileID = profileID
+    }
+    
     var body: some View {
-        NavigationView {
-            ZStack {
-                BackgroundColor(color: "Creamy Blue")
+    
+
+            
+            VStack {
                 
                 VStack {
-                    
-                    MedicationListCardView(medication: "Benadryl")
-                    
-                    MedicationListCardView(medication: "Creatine")
-                    
-                    MedicationListCardView(medication: "Effexor")
-                    
-                    MedicationListCardView(medication: "Vitamin D")
-                    Spacer()
-                    
-                    
-                    
-                    NavigationLink(destination: MedicationInfo(), label: {
-                        Text("Manage Medications")
-                            .frame(width: 250, height: 50)
-                            .background(Color("Bright Orange"))
-                            .foregroundColor(.black)
-                            .cornerRadius(10)
-                            .padding()
-                    })
-                    
-                    
-                    
-                    
+                    List(medicationVM.filteredMedications) { med in
+                        MedicationCardView(time: dateFormatter.string(from: med.time), medication: med.name)
+                    }
+                }
+                
+    
+                VStack {
+                    ButtonView(title: "Add Medications") {
+                        addMedications.toggle()
+                    }
+                    .frame(width: 350, height: 50)
+                    .sheet(isPresented: $addMedications, onDismiss: {
+                        medicationVM.fetchData()
+                    }, content: {
+                        MedicationEditView(profileID: profileID)
+                })
                 }
                 
                 
                 
+                
             }
-        }
+
+       
        
     }
 }
 
 struct MedicationList_Previews: PreviewProvider {
     static var previews: some View {
-        MedicationList()
+        MedicationList(profileID: "")
     }
 }
 
@@ -68,7 +74,7 @@ struct MedicationListCardView: View {
             
             HStack {
                 Spacer()
-                NavigationLink(destination: MedicationEditView(), label: {
+                NavigationLink(destination: MedicationEditView(profileID: ""), label: {
                     Text("Edit")
                 })
                     .frame(width: 50, height: 30)

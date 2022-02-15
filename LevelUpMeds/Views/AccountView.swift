@@ -6,11 +6,24 @@
 //
 
 import SwiftUI
+import FirebaseAuth
 
 struct AccountView: View {
+    
+    @EnvironmentObject var sessionService: SessionServiceImpl
+    
+    let email = Auth.auth().currentUser?.email ?? "email@gmail.com"
+    
     var body: some View {
-        ZStack {
-            BackgroundColor(color: "Creamy Blue")
+        
+        VStack {
+            
+            Text(email)
+            
+            ButtonView(title: "Logout") {
+                sessionService.logout()
+            }
+            
         }
     }
 }

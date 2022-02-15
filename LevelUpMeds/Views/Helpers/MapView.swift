@@ -7,8 +7,10 @@
 
 import SwiftUI
 import MapKit
+import CoreLocation
 
 struct MapView: View {
+    //var address: String
     var coordinate: CLLocationCoordinate2D
     @State private var region = MKCoordinateRegion()
     
@@ -25,6 +27,25 @@ struct MapView: View {
             center: coordinate,
             span: MKCoordinateSpan(latitudeDelta: 0.2, longitudeDelta: 0.2)
         )
+    }
+    
+    private func getCoordinate(addressString: String,
+                               completionHandler: @escaping(CLLocationCoordinate2D, NSError?) -> Void) {
+        let geocoder = CLGeocoder()
+        geocoder.geocodeAddressString(addressString) { (placemarks, error) in
+            
+            if error == nil {
+                if let placemark = placemarks?[0] {
+                    let location = placemark.location!
+                    
+                    completionHandler(location.coordinate, nil)
+                    return
+                }
+            }
+            
+            completionHandler(kCLLocationCoordinate2DInvalid, error as NSError?)
+            
+        }
     }
 }
 
