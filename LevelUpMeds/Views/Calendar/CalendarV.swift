@@ -16,15 +16,20 @@ struct CalendarV: View {
     @ObservedObject private var medicationModel = medicationViewModel()
     @Namespace var animation
     private let dateFormatter = DateFormatter()
-    var a = "a"
+    private let dateFormatter2 = DateFormatter()
+    private let dateFormatter3 = DateFormatter()
     
     init() {
-        appViewModel.profileList = uerViewModel.filteredProfiles
-        appViewModel.date = calendarModel.currentDay
+        //self.appViewModel = appViewModel
+        //self.medicationModel = medicationVM
+        //self.appViewModel.date = calendarModel.currentDay
+        uerViewModel.fetchData()
         dateFormatter.dateFormat = "hh:mm a"
-        calendarModel.filterTodayAppointments()
+        dateFormatter2.dateFormat = "MM/dd/yyyy"
+        dateFormatter3.dateFormat = "EEEE"
         medicationModel.fetchData()
-        appViewModel.fetchData()
+       // self.appViewModel.fetchData()
+        
     }
     
  
@@ -39,9 +44,9 @@ struct CalendarV: View {
             ScrollView(.vertical, showsIndicators: false) {
                 
                 //Mark: Lazy Stack with pinned header
-                LazyVStack(spacing: 15, pinnedViews: [.sectionHeaders]) {
+             LazyVStack(spacing: 15) {
                     
-                    Section {
+                    Section() {
                         
                         //Current week view
                         
@@ -97,51 +102,76 @@ struct CalendarV: View {
                             
                         }
                         
-                        VStack {
+                      VStack {
                             
                             Text("Medication")
                                 .font(.title.bold())
                                 .offset(x: -100)
-                            //MedicationView()
+                            MedicationView()
                             
                             Text("Appointments")
                                 .font(.title.bold())
                                 .offset(x: -80)
-                            AppointmentsView()
+                                AppointmentsView()
                             
-                      
                         }
                        
-                    
+                    Spacer()
+                    Spacer()
+                    Spacer()
                             
                     } header: {
                         HeaderView()
                     }
                 }
+                .onChange(of: calendarModel.currentDay) { newValue in
+
+                    calendarModel.filteredMedications.removeAll()
+                    calendarModel.filteredAppointments.removeAll()
+                    medicationModel.allMedications.removeAll()
+                    appViewModel.allAppointments.removeAll()
+
+                    getAppointments()
+                    getMedications()
+
+                }
+                .onAppear {
+                    
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                       //Your code
+                        getAppointments()
+                        getMedications()
+                    }
+                    //getAppointments()
+                    //getMedications()
+        
+                }
             }
-        }
+        }.edgesIgnoringSafeArea(.all)
+        
     }
     
     //Appointments View
     func AppointmentsView() -> some View {
 
-        LazyVStack(spacing: 20) {
+        VStack(spacing: 20) {
 
             
-            //x`if let appointment = appViewModel.appointment {
-            if let appointment = appViewModel.allProfilesForAccount {
-                
+            if let appointment = calendarModel.filteredAppointments {
+
                 if appointment.isEmpty {
-                    Text("No appointments found")
+                    Text("No Appointments Found")
                         .font(.system(size: 16))
                         .fontWeight(.light)
-                        .offset(y: 0)
+//                        .offset(y: 0)
                 } else {
-                    
-                    Text("NOT EMPTY")
-                    
+
                     ForEach(appointment) { appointment in
-                        CardView(appointment: appointment)
+                        
+                        NavigationLink(destination: AppointmentDetailView(appointment: appointment), label: {
+                            AppointmentCardView(appointment: appointment, showAdditional: true)
+                        })
+                        
                     }
                 }
 
@@ -150,33 +180,34 @@ struct CalendarV: View {
                 ProgressView()
                     .offset(y: 100)
             }
+            
+            
 
         }
         .padding()
         .padding(.top)
-        .onChange(of: calendarModel.currentDay) { newValue in
-            
-            calendarModel.filterTodayAppointments()
-
-        }
+        
+       
 
     }
        
     //Medication View
     func MedicationView() -> some View {
         
-        LazyVStack(spacing: 20) {
+        VStack(spacing: 20) {
          
-            if let medication = medicationModel.medication {
+            if let medication = calendarModel.filteredMedications {
                 if medication.isEmpty {
                     Text("No Medication Found")
                         .font(.system(size: 16))
                         .fontWeight(.light)
-                        .offset(y: 100)
+//                        .offset(y: 100)
                 } else {
                     ForEach(medication) { medication in
                         
-                        MedicationCardView(medication: medication)
+                        NavigationLink(destination: MedicationInfo(medication: medication), label: {
+                            MedicationCardView(medication: medication, showAdditional: true, currDate: calendarModel.currentDay)
+                        })
                         
                     }
 
@@ -187,146 +218,13 @@ struct CalendarV: View {
             }
 
         }
+        .onAppear {
+            getMedications()
+        }
         .padding()
         .padding(.top)
     }
         
-    
-    //Appointment Card View
-    func AppointmentCardView(appointment: Appointment) -> some View {
-        
-        HStack(alignment: .top, spacing: 30) {
-            VStack(spacing: 10) {
-                Circle()
-                    .fill(calendarModel.isCurrentHour(date: appointment.appointmentDate) ? .black : .clear)
-                    .frame(width: 15, height: 15)
-                    .background(
-                    
-                        Circle()
-                            .stroke(.black, lineWidth: 1)
-                            .padding(-3)
-                    )
-                    .scaleEffect(!calendarModel.isCurrentHour(date: appointment.appointmentDate) ? 0.8 : 1)
-                
-                Rectangle()
-                    .fill(.black)
-                    .frame(width: 3)
-            }
-            
-            VStack {
-                HStack(alignment: .top, spacing: 10) {
-                    VStack(alignment: .leading, spacing: 12) {
-                        
-                        Text(appointment.name)
-                            .font(.title2.bold())
-                        
-                        Text(appointment.notes)
-                            .font(.callout)
-                            .foregroundStyle(.secondary)
-                    }
-                    .hLeading()
-                    
-                    Text(appointment.appointmentDate.formatted(date: .omitted, time: .shortened))
-                }
-                
-                if calendarModel.isCurrentHour(date: appointment.appointmentDate) {
-
-                    HStack(spacing: 0) {
-                        HStack(spacing: -10) {
-
-
-                                Image(systemName: "\(a).circle.fill")
-                                    .resizable()
-                                    .aspectRatio(contentMode: .fill)
-                                    .frame(width: 45, height: 45)
-                                    .clipShape(Circle())
-                                    .background(
-
-                                        Circle()
-                                            .stroke(.black, lineWidth: 5)
-                                    )
-                        }
-                        .hLeading()
-                        Spacer()
-
-//                        Button {
-//
-//                        } label: {
-//                            Image(systemName: "checkmark")
-//                                .foregroundStyle(.black)
-//                                .padding(10)
-//                                .background(Color.white, in: RoundedRectangle(cornerRadius: 10))
-//                        }
-                    }
-                    .padding(.top)
-                }
-            }
-            .foregroundColor(calendarModel.isCurrentHour(date: appointment.appointmentDate) ? .white : .black)
-            .padding(calendarModel.isCurrentHour(date: appointment.appointmentDate) ? 15 : 0)
-            .padding(.bottom, calendarModel.isCurrentHour(date: appointment.appointmentDate) ? 0 : 10)
-            .hLeading()
-            .background(
-            
-                Color(.black)
-                    .cornerRadius(25)
-                    .opacity(calendarModel.isCurrentHour(date: appointment.appointmentDate) ? 1 : 0)
-                
-            )
-        }
-        .hLeading()
-    }
-    
-    func MedicationCardView(medication: Medication) -> some View {
-        HStack(alignment: .top, spacing: 30) {
-            VStack(spacing: 10) {
-                Circle()
-                    .fill(calendarModel.isCurrentHour(date: Date.now) ? .black : .clear)
-                    .frame(width: 15, height: 15)
-                    .background(
-                    
-                        Circle()
-                            .stroke(.black, lineWidth: 1)
-                            .padding(-3)
-                        
-                    )
-                    .scaleEffect(!calendarModel.isCurrentHour(date: Date.now) ? 0.8 : 1)
-                
-                Rectangle()
-                    .fill(.black)
-                    .frame(width: 8)
-            }
-            
-            VStack {
-                HStack(alignment: .top, spacing: 10) {
-                    VStack(alignment: .leading, spacing: 12) {
-                        
-                        Text(medication.name)
-                            .font(.title2.bold())
-                        
-                        Text(medication.notes)
-                            .font(.callout)
-                            .foregroundStyle(.secondary)
-                    }
-                    .hLeading()
-                    
-                    Text(dateFormatter.string(from: medication.time))
-                }
-            }
-            .foregroundColor(calendarModel.isCurrentHour(date: Date.now) ? .white : .black)
-            .padding(calendarModel.isCurrentHour(date: Date.now) ? 15 : 0)
-            .padding(.bottom, calendarModel.isCurrentHour(date: Date.now) ? 0 : 10)
-            .hLeading()
-            .background(
-            
-                Color(.black)
-                    .cornerRadius(25)
-                    .opacity(calendarModel.isCurrentHour(date: Date.now) ? 1 : 0)
-            
-            )
-        }
-    }
-        
-    
     //Mark: Header
     func HeaderView() -> some View {
         HStack(spacing: 10) {
@@ -346,14 +244,18 @@ struct CalendarV: View {
             }
             .hLeading()
             
-//            Button {
-//
-//            } label: {
-//                Image(systemName: "a.circle.fill")
-//                    .resizable()
-//                    .frame(width: 45, height: 45)
-//
-//            }
+            Image("smallLogo")
+                .resizable()
+                .frame(width: 40, height: 40)
+            
+            Spacer()
+            Spacer()
+            
+            Text("Calendar")
+                .font(.system(size: 26))
+                .fontWeight(.bold)
+                
+            
             
         }
         .padding()
@@ -361,10 +263,83 @@ struct CalendarV: View {
         .background(colorScheme == .dark ? .black : .white)
     }
     
+    func getAppointments() {
+        
+        for prof in uerViewModel.filteredProfiles {
+
+            appViewModel.getAllAppointments(profileID: prof.documentID)
+        }
+    
+        calendarModel.filteredAppointments = appViewModel.allAppointments.filter { app in
+            
+            dateFormatter2.string(from: app.appointmentDate) == dateFormatter2.string(from: calendarModel.currentDay)
+            
+        }
+    }
+    
+    func getMedications() {
+        
+        
+        for prof in uerViewModel.filteredProfiles {
+            
+            medicationModel.getAllMedications(profileID: prof.documentID)
+            
+        }
+        
+        for med in medicationModel.allMedications {
+            
+
+            let days = getMedicationDay(medication: med)
+
+            
+            if days.contains(dateFormatter3.string(from: calendarModel.currentDay)) {
+                calendarModel.filteredMedications.append(med)
+            }
+            
+        }
+
+    }
+    
+    func getMedicationDay(medication: Medication) -> [String] {
+        
+        var dayName: [String] = []
+        
+        if medication.days["u"] == true {
+            dayName.append("Sunday")
+        }
+        
+        if medication.days["m"] == true {
+            dayName.append("Monday")
+        }
+        
+        if medication.days["t"] == true {
+            dayName.append("Tuesday")
+        }
+        
+        if medication.days["w"] == true {
+            dayName.append("Wednesday")
+        }
+        
+        if medication.days["r"] == true {
+            dayName.append("Thursday")
+        }
+        
+        if medication.days["f"] == true {
+            dayName.append("Friday")
+        }
+        
+        if medication.days["s"] == true {
+            dayName.append("Saturday")
+        }
+        
+        return dayName
+        
+    }
 }
 
 struct CalendarV_Previews: PreviewProvider {
     static var previews: some View {
+        //CalendarV(appViewModel: appointmentViewModel(), medicationVM: medicationViewModel())
         CalendarV()
     }
 }

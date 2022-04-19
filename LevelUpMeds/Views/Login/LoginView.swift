@@ -33,7 +33,8 @@ struct LoginView: View {
                     
                     InputPasswordView(password: $vm.credentials.password,
                                       placeholder: "Password",
-                                      sfSymbol: "lock")
+                                      sfSymbol: "lock",
+                                      isNewPW: false)
                 }
                 
                 HStack {
@@ -44,6 +45,7 @@ struct LoginView: View {
                         
                     }, label: {
                         Text("Forgot Password?")
+                            .foregroundColor(Color("Bright Orange"))
                     })
                         .font(.system(size: 16, weight: .bold))
                         .sheet(isPresented: $showForgotPassword, content: {
@@ -61,7 +63,6 @@ struct LoginView: View {
     //                        return
     //                    }
                         vm.login()
-                        
     //                    viewModel.signIn(email: email, password: password)
                     }
                     

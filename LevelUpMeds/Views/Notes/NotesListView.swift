@@ -9,57 +9,62 @@ import SwiftUI
 
 struct NotesListView: View {
     
+    @ObservedObject var noteVM = notesViewModel()
     @State private var isNewNotePresented: Bool = false
+    var profileID: String
+    
+    init(profileID: String) {
+        self.profileID = profileID
+        noteVM.profileID = profileID
+    }
+    
     var body: some View {
         
-        NavigationView {
-            ZStack {
-                BackgroundColor(color: "Creamy Blue")
-                
-                VStack {
-                    
-                   
-                    NotePreview(date: "Monday Oct 11th 2021 9am",
-                                notePreview: "Alex's doctor's appointement was rescheduled to tomorrow at 10am" )
-                            .padding()
-                    
-                    NotePreview(date: "Monday Oct 11th 2021 11am",
-                                notePreview: "Alex fell down and hurt her arm this morning." )
-                            .padding()
-                    
-                    NotePreview(date: "Monday Oct 11th 2021 1pm",
-                                notePreview: "Alex had a very restless night and has been tired most of the day today" )
-                            .padding()
-                    
-                   
-                    
-                    Spacer()
-                    
-                    Button(action: {
-                        self.isNewNotePresented.toggle()
-                    }) {
-                        Text("Add Note")
-                            .frame(width: 200, height: 50)
-                            .background(Color("Bright Orange"))
-                            .cornerRadius(20)
-                            .padding()
-                            .font(.title)
-                    }.sheet(isPresented: $isNewNotePresented) {
-                        NewNoteView()
-                    }
-                    
-
+    
+        VStack {
+           
+            List {
+                ForEach(noteVM.filteredNotes) { n in
+                    NotesCardView(note: n)
                 }
-                .foregroundColor(.black)
+                .onDelete(perform: deleteNote)
             }
+            
+           
+            
+            Spacer()
+            
+            ButtonView(title: "Add Note") {
+                isNewNotePresented.toggle()
+            }.sheet(isPresented: $isNewNotePresented, onDismiss: {
+                noteVM.fetchData()
+            }, content: {
+                NewNoteView(profileID: profileID)
+            }).frame(width: 350, height: 50)
+            
 
         }
+        .onAppear() {
+            noteVM.fetchData()
+        }
     }
+
+
+    func deleteNote(at offsets: IndexSet) {
+        
+        for item in offsets {
+            let note = noteVM.filteredNotes[item]
+            
+            noteVM.deleteNote(note: note)
+        }
+        noteVM.fetchData()
+    }
+    
 }
 
 struct NotesListView_Previews: PreviewProvider {
     static var previews: some View {
-        NotesListView()
+        NotesListView(profileID: "")
     }
 }
 

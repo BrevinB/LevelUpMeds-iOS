@@ -20,6 +20,7 @@ struct InputTextFieldView: View {
     var body: some View {
         
         TextField(placeholder, text: $text)
+            .foregroundColor(.black)
             .disableAutocorrection(true)
             .autocapitalization(.none)
             .frame(maxWidth: 300, minHeight: 44)

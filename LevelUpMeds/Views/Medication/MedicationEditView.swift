@@ -9,7 +9,7 @@ import SwiftUI
 
 struct MedicationEditView: View {
     @Environment(\.presentationMode) var presentationMode
-    @State private var medication = ""
+    @State private var medicationName = ""
     @State private var medicationAmount = ""
     @State private var notes = "Enter Notes"
     @State private var monday = false
@@ -23,19 +23,26 @@ struct MedicationEditView: View {
     @State private var date = Date()
     @State private var reminders = false
     @State private var askForReminders = false
-    @State var profileID: String
-    @FocusState private var fieldIsFocused: Bool
-    
     @StateObject private var vm = RegistrationViewModelImpl()
     @StateObject private var medicationVM = medicationViewModel()
+    var medication: Medication
+    
+    init(medication: Medication) {
+        self.medication = medication
+        
+    }
+    
+
     
     var body: some View {
-        ZStack() {
-            
+
+        ScrollView() {
+            Spacer()
+            Spacer()
             VStack(spacing: 15){
                 VStack() {
                         //Medicaiotn Field Stack
-                        InputTextFieldView(text: $medication, placeholder: "Medication", keyboardType: .default, sfSymbol: "pills")
+                        InputTextFieldView(text: $medicationName, placeholder: "Medication", keyboardType: .default, sfSymbol: "pills")
                             .padding(.bottom, 10)
                         
                         InputTextFieldView(text: $medicationAmount, placeholder: "2 pils", keyboardType: .default, sfSymbol: "pills")
@@ -65,13 +72,7 @@ struct MedicationEditView: View {
                             .padding()
                     
                         //TODO: Add option for additional times
-//                        Button(action: {
-//
-//                            print("ADD")
-//
-//                        }) {
-//                            Text("Add Time")
-//                        }
+
                         
                         Button(action: {
                             askForReminders.toggle()
@@ -83,43 +84,82 @@ struct MedicationEditView: View {
                                 Button("No") { reminders = false }
                             }
                         
-                        VStack(alignment: .leading, spacing: 0) {
+                        VStack(alignment: .leading, spacing: 8) {
                             Text("ADDITIONAL NOTES")
                                 .font(.title2)
 
                             
                             TextEditor(text: $notes)
-                                .padding()
-                                .border(Color("Bright Orange"), width: 2)
-                                .foregroundColor(Color.black)
-                                .frame(width: 350, height: 250)
-                                .focused($fieldIsFocused)
+                                .frame(width: 380, height: 250)
+                                .overlay(
+                                    RoundedRectangle(cornerRadius: 16)
+                                        .stroke(Color("Bright Orange"), lineWidth: 2)
+                                )
                                 .submitLabel(.return)
-//                                .onSubmit {
-//                                    
-//                                }
+                                .foregroundColor(.black)
+                                
                         }
+                        .onTapGesture {
+                            self.hideKeyboard()
+                          }
                                     
                 }
                 
                 ButtonView(title: "Submit") {
-                        
-//                        let days = [sunday, monday, tuesday, wednesday, thursday, friday, saturday]
-                        
-                    medicationVM.addData(amount: medicationAmount, days: [sunday, monday, tuesday, wednesday, thursday, friday, saturday], name: medication, notes: notes, notifications: reminders, profileID: profileID, time: date)
-                    
+                      //TODO: Update Medication
+                    medicationVM.updateData(amount: medicationAmount,
+                                            days: ["u":sunday, "m":monday, "t":tuesday, "w":wednesday, "r":thursday, "f":friday, "s":saturday],
+                                            name: medicationName,
+                                            notes: notes,
+                                            notifications: reminders,
+                                            time: date,
+                                            documentID: medication.documentID)
                     self.presentationMode.wrappedValue.dismiss()
                     }
+                    .frame(width: 350, height: 40)
+                    .padding()
             }
+        }
+            .onAppear {
+                setData()
+            }
+
             
         }
+    
+    private func setData() {
+        medicationName = medication.name
+        medicationAmount = medication.amount
+        date = medication.time
+        reminders = medication.notificationsEnabled
+        notes = medication.notes
+        
+        sunday = medication.days["u"]!
+        monday = medication.days["m"]!
+        tuesday = medication.days["t"]!
+        wednesday = medication.days["w"]!
+        thursday = medication.days["r"]!
+        friday = medication.days["f"]!
+        saturday = medication.days["s"]!
+        
     }
+    
+
     
 }
 
 struct MedicationEditView_Previews: PreviewProvider {
     static var previews: some View {
-        MedicationEditView(profileID: "")
+        
+        let testMedication = Medication(documentID: "", amount: "6 pills",
+                                        days: ["f":true, "m":true, "t":false, "w":true, "r":false, "u":false, "s":false],
+                                        name: "Creatine",
+                                        notes: "Take 6 a day",
+                                        notificationsEnabled: true,
+                                        profileID: "/Profiles/k2f4OJeJS8JUs0kShO3O", time: Date())
+        
+        MedicationEditView(medication: testMedication)
+           
     }
 }
 
@@ -172,10 +212,4 @@ struct displayDate: View {
 
 
 
-func addTime(numOfTimes: Int) -> some View {
-    
-//    for _ in (0...numOfTimes) {
-        return displayDate()
-//    }
-}
 

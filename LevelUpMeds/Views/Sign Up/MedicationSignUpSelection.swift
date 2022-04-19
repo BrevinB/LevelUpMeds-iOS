@@ -42,7 +42,7 @@ struct MedicationSignUpSelection: View {
                             .padding()
                             .font(.title)
                     }.sheet(isPresented: $personalMedication) {
-                        MedicationInfo()
+                        //TODO: ADD
                     }
                     
                     Button(action: {

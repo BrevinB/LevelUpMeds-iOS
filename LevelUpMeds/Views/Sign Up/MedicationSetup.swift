@@ -25,7 +25,7 @@ struct MedicationSetup: View {
 //                        MedicationEditView()
 //                    }
                     
-                    NavigationLinkButtons(text: "Myself", color: "Bright Orange", view: AnyView(MedicationEditView(profileID: "")))
+                    NavigationLinkButtons(text: "Myself", color: "Bright Orange", view: AnyView(AddNewMedicationView(profileID: "")))
                     
                     ButtonView(title: "Someone Else") {
                         self.patientMedication.toggle()

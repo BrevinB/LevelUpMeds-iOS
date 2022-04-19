@@ -10,6 +10,7 @@ import FirebaseFirestore
 
 struct Appointment: Identifiable {
     var id = UUID().uuidString
+    var documentID: String
     var appointmentDate: Date
     var address: String
     var name: String

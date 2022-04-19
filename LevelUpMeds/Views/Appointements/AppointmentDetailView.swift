@@ -13,49 +13,73 @@ struct AppointmentDetailView: View {
     
     @ObservedObject private var appointmentVM = appointmentViewModel()
     
-    let name: String
-    let address: String
-    let time: String
-    @State private var location = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: 41.186973, longitude: -85.101428), span: MKCoordinateSpan(latitudeDelta: 0.03, longitudeDelta: 0.03))
+    private var name: String = ""
+    private var address: String = ""
+    private var time: String = ""
+    @State private var location = CLLocationCoordinate2D()
+    @State private var region = MKCoordinateRegion()
+   
+    
+    var appointment: Appointment
+    
+    init(appointment: Appointment) {
+        
+        self.appointment = appointment
+        
+    }
   
     var body: some View {
             
             VStack {
-                ZStack() {
-                    RoundedRectangle(cornerRadius: 0)
-                        .fill(.white)
-                        .frame(width: 360, height: 135)
-                        .shadow(color: .gray, radius: 25, x: -10, y: 10)
-                    
                     
                     
                     VStack() {
                        
-                        AppointmentDashCardView(name: name, address: address, time: time)
+                        AppointmentCardView(appointment: appointment, showAdditional: false)
                         
                        
                     }
                     .padding()
                     .foregroundColor(.black)
+                
+                
+
+//                Map(coordinateRegion: MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: location?.latitude, longitude: location?.longitude))
+//                    .ignoresSafeArea(edges: .top)
+//                    .frame(height: 400)
+                
+                
+                Map(coordinateRegion: $region)
+                    
+
                 }
-                
-                Spacer()
-    
-                Map(coordinateRegion: $location)
-                    .ignoresSafeArea(edges: .top)
-                    .frame(height: 400)
-                
-                Spacer()
-                Spacer()
-                
-                
+                .onAppear {
+                    
+                    appointmentVM.getLocation(appointment: appointment) { coordinates in
+                        location = coordinates!
+                        //setRegion()
+                    }
+                    
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                        setRegion()
+                    }
+                   
             }
-    }
+        
+       
 }
 
 struct AppointementDetailView_Previews: PreviewProvider {
     static var previews: some View {
-        AppointmentDetailView(name: "Doctor App", address: "1234 App Dr", time: "1:30")
+        
+        let appointment: Appointment = Appointment(documentID: "",
+                                                   appointmentDate: Date(),
+                                                      address: "6215 Ranger Trail, Fort Wayne, Indiana",
+                                                      name: "Covid Test",
+                                                      notes: "Testing for da cove",
+                                                      profileID: "")
+        
+        AppointmentDetailView(appointment: appointment)
     }
 }
 
@@ -76,4 +100,13 @@ func getCoordinate(addressString: String,
         completionHandler(kCLLocationCoordinate2DInvalid, error as NSError?)
         
     }
+}
+    
+    func setRegion() {
+        
+        print(location)
+
+        region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: location.latitude, longitude: location.longitude), span: MKCoordinateSpan(latitudeDelta: 0.05, longitudeDelta: 0.05))
+    }
+    
 }

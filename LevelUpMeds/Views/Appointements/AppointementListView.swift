@@ -30,19 +30,16 @@ struct AppointementListView: View {
                         Text("Please add an appointment")
                         
                     } else {
-                        List(appointmentVM.filteredAppointments) { app in
-                            
-                            NavigationLink(destination: AppointmentDetailView(name: app.name,
-                                                                               address: app.address,
-                                                                               time: formatter1.string(from: app.appointmentDate))) {
-                                AppointmentDashCardView(name: app.name,
-                                                        address: app.address,
-                                                        time: formatter1.string(from: app.appointmentDate),
-                                                        addExtension: true)
-                            }
-
-                            
+                        
+                        List() {
+                            ForEach(appointmentVM.filteredAppointments) { app in
+                                NavigationLink(destination: AppointmentDetailView(appointment: app)) {
+                                    AppointmentCardView(appointment: app, showAdditional: false)
+                                }
+                            }.onDelete(perform: removeAppointments)
                         }
+                        
+                      
                     }
                     
                     ButtonView(title: "Add Appointment") {
@@ -61,6 +58,20 @@ struct AppointementListView: View {
                     }
             
         }
+    }
+    
+    func removeAppointments(at offsets: IndexSet) {
+       
+        for i in offsets.makeIterator() {
+            let item = appointmentVM.filteredAppointments[i]
+            
+            
+            appointmentVM.deleteAppointment(app: item)
+        }
+        
+        appointmentVM.fetchData()
+       
+        
     }
 }
 

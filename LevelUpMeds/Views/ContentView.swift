@@ -10,6 +10,9 @@ import Firebase
 
 struct ContentView: View {
 
+    @AppStorage("needsAppOnboarding") private var needsAppOnboarding: Bool = true 
+    
+    
     var body: some View {
         
         NavigationView() {

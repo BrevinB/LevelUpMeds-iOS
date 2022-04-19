@@ -18,7 +18,8 @@ struct AddAppointmentView: View {
     @State var profileID: String
     
     var body: some View {
-        VStack() {
+        ScrollView {
+          Spacer()
             VStack {
                 InputTextFieldView(text: $name, placeholder: "Appointment Name", keyboardType: .default, sfSymbol: nil)
                 
@@ -29,19 +30,24 @@ struct AddAppointmentView: View {
                 
                 TextEditor(text: $notes)
                     .padding()
-                    .border(Color("Bright Orange"), width: 2)
-                    .foregroundColor(Color.black)
-                    .frame(width: 350, height: 250)
+                    .frame(width: 380, height: 250)
+                    .overlay(
+                        RoundedRectangle(cornerRadius: 16)
+                            .stroke(Color("Bright Orange"), lineWidth: 2)
+                    )
+                
+                
                 
                 ButtonView(title: "Submit") {
                     appointmentVM.addData(appointmentDate: date, name: name, notes: notes, address: address, profileID: profileID)
                     
                     self.presentationMode.wrappedValue.dismiss()
                 }
+                .frame(width: 350, height: 40)
                 .padding()
                 
-            
             }
+
         }
     }
 }

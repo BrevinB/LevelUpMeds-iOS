@@ -101,11 +101,10 @@ struct CalendarCardView: View {
     
         if type == "Medication" {
             
-            MedicationCardView(time: time, medication: medication)
+            MedicationCardsView(time: time, medication: medication)
         }
         
         if type == "Appointement" {
-            AppointementCardView()
             
         }
         }

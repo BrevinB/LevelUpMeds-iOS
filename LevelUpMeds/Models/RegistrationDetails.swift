@@ -15,6 +15,7 @@ struct RegistrationDetails {
     var lastName: String
     var medication: String
     var notes: String
+    var uid: String
     
 }
 
@@ -27,6 +28,7 @@ extension RegistrationDetails {
                             firstName: "",
                             lastName: "",
                             medication: "",
-                            notes: "")
+                            notes: "",
+                            uid: "")
     }
 }

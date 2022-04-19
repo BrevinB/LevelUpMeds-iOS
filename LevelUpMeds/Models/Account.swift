@@ -13,6 +13,6 @@ struct Account: Identifiable {
     var email: String
     var fname: String
     var lname: String
-    var password: String
+    var uid: String
     
 }

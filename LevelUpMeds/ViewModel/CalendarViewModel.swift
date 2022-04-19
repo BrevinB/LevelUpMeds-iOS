@@ -9,20 +9,27 @@ import SwiftUI
 
 class CalendarViewModel: ObservableObject {
 
-    @ObservedObject private var appViewModel = appointmentViewModel()
-    @ObservedObject private var uerViewModel = profileViewModel()
+    @ObservedObject private var appointmentVM = appointmentViewModel()
+    @ObservedObject private var profileVM = profileViewModel()
     
     //Current week days
     @Published var currentWeek: [Date] = []
     
     //Current Day
-    @Published var currentDay: Date = Date()
+    @Published var currentDay: Date = Date.now
     
     //Filtering Today Appointments
-    @Published var filteredAppointments: [Appointment]?
+    @Published var filteredAppointments: [Appointment] = []
+    
+    //Filtering Today Medications
+    @Published var filteredMedications: [Medication] = []
+    
+    //Get appointments for account
+//    @Published var allAppointments: [Appointment]?
     
     init() {
-        filterTodayAppointments()
+        profileVM.fetchData()
+        getAllAppointments()
         fetchCurrentWeek()
     }
     
@@ -32,20 +39,18 @@ class CalendarViewModel: ObservableObject {
         DispatchQueue.global(qos: .userInteractive).async {
             
             let calendar = Calendar.current
-            
-            let filtered = self.appViewModel.appointment.filter {
+
+            let filtered = self.appointmentVM.appointment.filter {
                 return calendar.isDate($0.appointmentDate, inSameDayAs: self.currentDay)
             }
-            
+
             DispatchQueue.main.async {
                 withAnimation {
                     self.filteredAppointments = filtered
                 }
             }
-            
         }
     }
-    
     func fetchCurrentWeek() {
         
         let today = Date()
@@ -114,6 +119,15 @@ class CalendarViewModel: ObservableObject {
             return true
         } else {
             return false
+        }
+    }
+    
+    func getAllAppointments() {
+        
+        profileVM.filteredProfiles.forEach { prof in
+            //print(prof.documentID)
+            appointmentVM.getAllAppointments(profileID: "/Profiles/\(prof.documentID)")
+            
         }
     }
 }

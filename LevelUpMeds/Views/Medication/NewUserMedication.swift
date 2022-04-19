@@ -15,8 +15,7 @@ struct NewUserMedication: View {
     
     var body: some View {
         NavigationView {
-            ZStack {
-                BackgroundColor(color: "Creamy Blue")
+            
                 VStack() {
                     Spacer()
                     HStack (alignment: .center, spacing: 10) {
@@ -46,14 +45,12 @@ struct NewUserMedication: View {
                     Spacer()
                     Spacer()
                     
-                    NavigationLinkNButton(view: AnyView(MedicationInfo()), text: "Next", imageName: "arrow.right")
+//                    NavigationLinkNButton(view: AnyView(AddNewMdicationView), text: "Next", imageName: "arrow.right")
                    
                     
                 }
                 .foregroundColor(.black)
             }
-            
-        }
     }
 }
 

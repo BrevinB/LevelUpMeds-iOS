@@ -8,6 +8,13 @@
 import SwiftUI
 
 struct CaretakerView: View {
+    
+    @StateObject var profileVM = profileViewModel()
+    @StateObject var medicationVM = medicationViewModel()
+    @StateObject var medHistVM = medHistoryViewModel()
+    @StateObject var appointmentVM = appointmentViewModel()
+    @StateObject var accountVM = accountViewModel()
+    @StateObject var calendarModel = CalendarViewModel()
    
     @State private var tabSelection = 1
     @State private var tappedTwice: Bool  = false
@@ -18,6 +25,9 @@ struct CaretakerView: View {
     
     init() {
         UITabBar.appearance().backgroundColor = UIColor.systemBackground
+//        profViewModel.fetchData()
+//          medicationVM.fetchData()
+//        appViewModel.fetchData()
         
     }
     
@@ -32,14 +42,12 @@ struct CaretakerView: View {
     )}
     
     var body: some View {
-            
-            VStack {
-                
+          
                 
                 TabView(selection: handler) {
                     
                     
-                    DashboardView()
+                    DashboardView(appViewModel: appointmentVM, medicationVM: medicationVM)
                         .id(dashboard)
                         .onChange(of: tappedTwice, perform: { tappedTwice in
                             guard tappedTwice else {return}
@@ -50,7 +58,7 @@ struct CaretakerView: View {
                             Image(systemName: "person.text.rectangle")
                             Text("Dashboard")
                         }
-                        .tag(1)
+                        .tag(3)
                     
                     
                     CalendarV()
@@ -72,7 +80,7 @@ struct CaretakerView: View {
                             Image(systemName: "person.3.fill")
                             Text("Profiles")
                         }
-                        .tag(3)
+                        .tag(1)
                     
                     AccountView()
                         .id(account)
@@ -83,12 +91,12 @@ struct CaretakerView: View {
                         .tag(4)
                 }
                 .accentColor(.orange)
-//                .onAppear() {
-//                    UITabBar.appearance().backgroundColor = .lightGray
-//                    }
+                .onAppear() {
+                    profileVM.fetchData()
+                    medicationVM.fetchData()
+                    appointmentVM.fetchData()
+                }
                 
-            }
-            //.edgesIgnoringSafeArea(.all)
         }
 }
 

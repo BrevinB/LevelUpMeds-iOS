@@ -38,8 +38,6 @@ final class LoginViewModelImpl: ObservableObject, LoginViewModel {
     
     func login() {
         
-        print("LOGIN")
-        
         //Check if fields are filled in
         if credentials.email == "" || credentials.password == "" {
             self.alertMsg = "Please fill the content fields properly"

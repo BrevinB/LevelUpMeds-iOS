@@ -10,25 +10,30 @@ import SwiftUI
 struct MedicationList: View {
     
     @ObservedObject private var medicationVM = medicationViewModel()
-    @State var profileID: String = ""
+    @ObservedObject private var medicationHist = medHistoryViewModel()
+    @State var profileID: String
     private let dateFormatter = DateFormatter()
     @State private var addMedications: Bool = false
     
     init(profileID: String) {
         self.profileID = profileID
         self.medicationVM.profileID = profileID
+        medicationVM.fetchData()
     }
     
     var body: some View {
-    
-
             
             VStack {
                 
                 VStack {
-                    List(medicationVM.filteredMedications) { med in
-                        MedicationCardView(time: dateFormatter.string(from: med.time), medication: med.name)
+                    
+                    List {
+                        ForEach(medicationVM.filteredMedications) { med in
+                            MedicationCardView(medication: med, showAdditional: false, currDate: Date())
+                        }
+                        .onDelete(perform: removeMedications)
                     }
+                
                 }
                 
     
@@ -40,7 +45,7 @@ struct MedicationList: View {
                     .sheet(isPresented: $addMedications, onDismiss: {
                         medicationVM.fetchData()
                     }, content: {
-                        MedicationEditView(profileID: profileID)
+                        AddNewMedicationView(profileID: profileID)
                 })
                 }
                 
@@ -48,48 +53,30 @@ struct MedicationList: View {
                 
                 
             }
+            
 
        
        
+    }
+    
+    func removeMedications(at offsets: IndexSet) {
+       
+        for item in offsets.makeIterator() {
+            let med = medicationVM.filteredMedications[item]
+            let hist = medicationHist.getMedHistory(med: med)
+            
+            medicationVM.deleteMedication(medication: med, medHist: hist)
+        }
+        
+        medicationVM.fetchData()
+       
+        
     }
 }
 
 struct MedicationList_Previews: PreviewProvider {
     static var previews: some View {
-        MedicationList(profileID: "")
+        MedicationList(profileID: "/Profiles/k2f4OJeJS8JUs0kShO3O")
     }
 }
 
-struct MedicationListCardView: View {
-    var medication: String
-    var body: some View {
-        
-       
-        ZStack {
-            HStack {
-                MedicationCardView(time: "", medication: medication)
-                
-                
-            }
-            
-            HStack {
-                Spacer()
-                NavigationLink(destination: MedicationEditView(profileID: ""), label: {
-                    Text("Edit")
-                })
-                    .frame(width: 50, height: 30)
-                    .background(Color("Bright Orange"))
-                    .foregroundColor(.black)
-                    .cornerRadius(10)
-                    .padding(.trailing, 30)
-                    .padding(.top, 50)
-            }
-        }
-       
-        
-            
-        
-        
-        
-    }
-}

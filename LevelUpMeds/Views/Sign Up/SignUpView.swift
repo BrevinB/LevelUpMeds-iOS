@@ -15,11 +15,7 @@ struct SignUpView: View {
     @StateObject private var userVM = profileViewModel()
     @StateObject private var vm = RegistrationViewModelImpl()
     @StateObject private var accountVM = accountViewModel()
-    @State private var email = ""
-    @State private var password = ""
-    @State private var confirmedPassword = ""
-    @State private var firstName = ""
-    @State private var lastName = ""
+    @State private var isPrivateField = true
     
     @State private var presentMedication = false
     
@@ -36,13 +32,19 @@ struct SignUpView: View {
                                            keyboardType: .emailAddress,
                                            sfSymbol: "envelope")
                         
-                        InputPasswordView(password: $vm.userDetails.password,
-                                          placeholder: "Password",
-                                          sfSymbol: "lock")
+                        if isPrivateField {
+                            InputPasswordView(password: $vm.userDetails.password,
+                                              placeholder: "Password",
+                                              sfSymbol: "lock",
+                                              isNewPW: true)
+                            
+                            InputPasswordView(password: $vm.userDetails.confirmedPassword,
+                                              placeholder: "Confirm Password",
+                                              sfSymbol: "lock",
+                                              isNewPW: false)
+                        }
                         
-                        InputPasswordView(password: $vm.userDetails.confirmedPassword,
-                                          placeholder: "Confirm Password",
-                                          sfSymbol: "lock")
+                        
                         
                         Divider()
                         
@@ -59,13 +61,9 @@ struct SignUpView: View {
                     }
                     
                     ButtonView(title: "Sign Up") {
-                        //TODO: Handle create action HERE
-                        vm.register()
-                       accountVM.addData(fname: vm.userDetails.firstName,
-                                          lname: vm.userDetails.lastName,
-                                          email: vm.userDetails.email,
-                                          password: vm.userDetails.password)
                         
+                        vm.register()
+                       
     //                    guard !email.isEmpty, !password.isEmpty else { return }
 //                        viewModel.signUp(email: email, password: password)
                         
@@ -75,6 +73,7 @@ struct SignUpView: View {
                     
 //                    NavigationLinkButtons(text: "Sign Up", color: "Bright Orange", view: AnyView(MedicationSetup()))
                 }
+                .ignoresSafeArea(.keyboard, edges: .bottom)
                 .padding(.horizontal, 15)
                 .navigationTitle("Sign Up")
                 .applyClose()

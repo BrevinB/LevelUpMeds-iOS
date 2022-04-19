@@ -6,10 +6,14 @@
 //
 
 import SwiftUI
+import FirebaseAuth
 
 struct ForgotPasswordView: View {
     
     @Environment(\.presentationMode) var presentationMode
+    @State private var email: String = ""
+    @State private var alert = false
+    @State private var alertMsg = ""
     
     var body: some View {
         
@@ -17,13 +21,23 @@ struct ForgotPasswordView: View {
             
             VStack(spacing: 16) {
                 
-                InputTextFieldView(text: .constant(""),
+                InputTextFieldView(text: $email,
                                    placeholder: "Email",
                                    keyboardType: .emailAddress,
                                    sfSymbol: "envelope")
                 
                 ButtonView(title: "Send Password Reset") {
                     //TODO: handle password reset action
+                    Auth.auth().sendPasswordReset(withEmail: email) { error in
+                        
+                        if error != nil {
+                            alertMsg = error!.localizedDescription
+                            alert.toggle()
+                            return
+                        }
+                        
+                    }
+                    
                     presentationMode.wrappedValue.dismiss()
                 }
                 

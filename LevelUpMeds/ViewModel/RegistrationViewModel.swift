@@ -26,12 +26,14 @@ protocol RegistrationViewModel {
 
 final class RegistrationViewModelImpl: ObservableObject, RegistrationViewModel {
     
+    
     @ObservedObject var userVM = profileViewModel()
     @Published var isLoading = false
     @Published var doneUploading = false
     @Published var alert = false
     @Published var alertMsg = ""
     @Published var isMedicationSetup = true
+    @ObservedObject var accountVM = accountViewModel()
 //    let service: RegistrationService
     
     var state: RegistrationState = .na
@@ -50,6 +52,7 @@ final class RegistrationViewModelImpl: ObservableObject, RegistrationViewModel {
             
             self.alertMsg = "Please fill contents properly"
             self.alert.toggle()
+        
             return
             
         }
@@ -73,8 +76,12 @@ final class RegistrationViewModelImpl: ObservableObject, RegistrationViewModel {
                 return
             }
             
+            let uid = result?.user.uid
+            print(uid ?? "No UID")
             withAnimation {
                 self.isLoading.toggle()
+                self.accountVM.addData(fname: self.userDetails.firstName, lname: self.userDetails.lastName, email: self.userDetails.email, uid: uid ?? "No UID")
+                self.userDetails.uid = uid ?? "No UID"
                 self.doneUploading.toggle()
             }
             
@@ -94,8 +101,7 @@ final class RegistrationViewModelImpl: ObservableObject, RegistrationViewModel {
 //            })
             
         }
-        
-        //userViewModel.addData(fname: Auth.auth().currentUser?.displayName, lname: "")
+
     }
     
 }

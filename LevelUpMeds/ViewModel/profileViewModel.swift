@@ -8,16 +8,20 @@
 import Foundation
 import FirebaseFirestore
 import FirebaseAuth
+import SwiftUI
 
 class profileViewModel: ObservableObject {
     
     @Published var profile = [Profile]()
     @Published var ID: String = ""
+    @Published var profilesInAccount: [String] = []
     var filteredProfiles: [Profile] {
         profile.filter { profile in
             profile.uid == Auth.auth().currentUser?.uid
         }
     }
+    
+    var filteredIDs: [String] = []
     
     @Published var isCreated = false
     
@@ -41,14 +45,13 @@ class profileViewModel: ObservableObject {
                             let fname = p["fname"] as? String ?? ""
                             let lname = p["lname"] as? String ?? ""
                             let initial = p["initial"] as? String ?? ""
-                            //let accountID = p["accountID"] as? String ?? ""
                             let uid = p["uid"] as? String ?? ""
-                            return Profile(documentID: "/Profiles/\(document)", fname: fname, lname: lname, initial: initial.lowercased(), uid: uid)
+                            return Profile(documentID: document, fname: fname, lname: lname, initial: initial.lowercased(), uid: uid)
                       }
                     }
                 }
             } else {
-                //Handle error
+                print(error!)
             }
         }
         
@@ -73,18 +76,42 @@ class profileViewModel: ObservableObject {
     
     //get profileID for newly added user
     func getProfileID(fname: String, lname: String) {
+     
         self.fetchData()
         var profileID: String = ""
         for profile in filteredProfiles {
             if profile.fname == fname && profile.lname == lname {
                 profileID = profile.documentID
-                print("\(profileID) this is in the loop")
                 break
             }
         }
         
         self.ID = profileID
     }
+    
+    func getAllFilteredProfiles() {
+        guard let uid = Auth.auth().currentUser?.uid else {
+            return
+        }
+        
+        for profile in filteredProfiles {
+            if profile.uid == uid {
+                profilesInAccount.append(profile.documentID)
+            }
+        }
+    }
+    
+    func deleteProfile(profile: Profile) {
+        db.collection("Profiles").document(profile.documentID).delete() { err in
+            if let err = err {
+                print(err)
+            } else {
+                print("medHistory removed")
+            }
+        }
+        
+    }
+    
 }
 
 

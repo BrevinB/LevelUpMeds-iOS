@@ -46,7 +46,7 @@ struct AddProfileView: View {
                 },
                 content: {
                    
-                    MedicationEditView(profileID: userVM.ID)
+                    AddNewMedicationView(profileID: userVM.ID)
                 })
                 .padding()
             }

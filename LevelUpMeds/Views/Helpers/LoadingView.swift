@@ -28,7 +28,7 @@ struct LoadingView: View {
         .background(Color.black.opacity(0.4).ignoresSafeArea(.all, edges: .all))
         .onAppear(perform: {
             
-            withAnimation(Animation.linear(duration: 1)) {
+            withAnimation(Animation.linear(duration: 5)) {
                 animation.toggle()
             }
         })
