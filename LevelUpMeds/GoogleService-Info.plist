@@ -3,9 +3,9 @@
 <plist version="1.0">
 <dict>
 	<key>CLIENT_ID</key>
-	<string>374568079675-jtsau26n5j71mdbdvb0qijfqitttg7sv.apps.googleusercontent.com</string>
+	<string>374568079675-scgane0hu33582dun8apenum12q09rbu.apps.googleusercontent.com</string>
 	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.374568079675-jtsau26n5j71mdbdvb0qijfqitttg7sv</string>
+	<string>com.googleusercontent.apps.374568079675-scgane0hu33582dun8apenum12q09rbu</string>
 	<key>API_KEY</key>
 	<string>AIzaSyDMDBYiMyB2LO1T9ObiJb6PKPAX3tfMoeE</string>
 	<key>GCM_SENDER_ID</key>
@@ -13,7 +13,7 @@
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
-	<string>com.BrevinB.LevelUpMeds</string>
+	<string>com.BrevinB.LevelUpMeds-Beta</string>
 	<key>PROJECT_ID</key>
 	<string>levelupmeds</string>
 	<key>STORAGE_BUCKET</key>
@@ -29,6 +29,6 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:374568079675:ios:d73b071cd1709f0342671e</string>
+	<string>1:374568079675:ios:c9abac0e45ff7bef42671e</string>
 </dict>
 </plist>
