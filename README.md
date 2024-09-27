@@ -2,6 +2,11 @@
 iOS repository for CS460 Capstone porject
 This was the project I worked on for my CS460 Capstone Project at Purdue Univeristy Fort Wayne.
 The goal of this app was to help users track medication for others and themselves.
+
+# LevelUpMeds-Blog
+[View Blog of Senior Capstone](https://levelup-meds.com/levelup-meds-blog/f/purdue-ft-wayne-senior-capstone-project-final-presentation)
+
+# Images of App 
 ![AD5A7932-8DB8-47DB-9568-1E0DC6721BB0_1_102_o](https://user-images.githubusercontent.com/30970021/194714244-2217322d-a653-4b8b-a4ca-bbe2c2f2ee08.jpeg)
 ![E4063223-0C9A-4303-9F90-E53A52BA8710_1_102_o](https://user-images.githubusercontent.com/30970021/194714246-1c16d8f7-859d-4054-a898-bbe70b5c506a.jpeg)
 ![22246BF0-EAF3-4492-B4B8-472D68F8D043_1_102_o](https://user-images.githubusercontent.com/30970021/194714247-3b1f6adb-140b-49d9-8475-0cff89402ed3.jpeg)
